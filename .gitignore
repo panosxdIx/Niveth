@@ -1,0 +1,8 @@
+build/rootfs/
+build/iso-work/
+build/cache/
+iso/*.iso
+*.tmp
+*.log
+__pycache__/
+*.pyc
