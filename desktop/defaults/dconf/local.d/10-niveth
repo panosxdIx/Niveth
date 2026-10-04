@@ -1,0 +1,65 @@
+[org/gnome/desktop/background]
+picture-options='zoom'
+picture-uri='file:///usr/share/niveth/wallpapers/dark/97c18a14-d3b3-4673-bce9-f535a2fb729c.png'
+picture-uri-dark='file:///usr/share/niveth/wallpapers/dark/97c18a14-d3b3-4673-bce9-f535a2fb729c.png'
+primary-color='#02023c3c8888'
+
+[org/gnome/desktop/interface]
+accent-color='teal'
+color-scheme='prefer-dark'
+cursor-size=32
+cursor-theme='retrosmart-xcursor-mac-ish-gruvbox'
+document-font-name='Noto Sans 11'
+font-name='Noto Sans 11'
+gtk-theme='Yaru-prussiangreen'
+icon-theme='Yaru-prussiangreen'
+monospace-font-name='Noto Mono 11'
+
+[org/gnome/mutter]
+edge-tiling=false
+
+
+[org/gnome/mutter/keybindings]
+toggle-tiled-left=@as []
+toggle-tiled-right=@as []
+
+[org/gnome/shell]
+app-picker-layout=[{'com.mattjakeman.ExtensionManager.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'firmware-updater_firmware-updater.desktop': <{'position': <2>}>, 'gnome-language-selector.desktop': <{'position': <3>}>, 'org.gnome.Settings.desktop': <{'position': <4>}>, 'net.nokyan.Resources.desktop': <{'position': <5>}>, 'desktop-security-center_desktop-security-center.desktop': <{'position': <6>}>, 'org.gnome.Characters.desktop': <{'position': <7>}>, 'update-manager.desktop': <{'position': <8>}>, 'Utilities': <{'position': <9>}>, 'System': <{'position': <10>}>, 'org.gnome.TextEditor.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'org.gnome.Yelp.desktop': <{'position': <13>}>, 'org.gnome.Calculator.desktop': <{'position': <14>}>, 'org.gnome.clocks.desktop': <{'position': <15>}>, 'org.gnome.Nautilus.desktop': <{'position': <16>}>, 'niveth-terminal.desktop': <{'position': <17>}>, 'org.gnome.Ptyxis.desktop': <{'position': <18>}>, 'display-im7.q16.desktop': <{'position': <19>}>, 'de.schmidhuberj.tubefeeder.desktop': <{'position': <20>}>}]
+disabled-extensions=['ubuntu-dock@ubuntu.com']
+enabled-extensions=['ding@rastersoft.com', 'tiling-assistant@ubuntu.com', 'window-gap@amirhosseinkarimi.github.io', 'rounded-windows@marcosgt.github.io', 'niveth-dock@nivethos', 'niveth-ui-test@nivethos', 'wack-lockscreen-clock@rinzler69-wastaken.github.com', 'niveth-lockscreen@nivethos', 'niveth-system-monitor@nivethos', 'niveth-topbar@nivethos']
+favorite-apps=['vivaldi-stable.desktop', 'kitty.desktop', 'com.niveth.Notes.desktop', 'org.kde.okular.desktop', 'com.niveth.AppCenter.desktop', 'org.niveth.Files.desktop']
+last-selected-power-profile='power-saver'
+
+
+[org/gnome/shell/extensions/dash-to-dock]
+dash-max-icon-size=32
+dock-fixed=true
+extend-height=false
+
+
+[org/gnome/shell/extensions/ding]
+check-x11wayland=true
+icon-size='small'
+
+
+[org/gnome/shell/extensions/rounded-windows]
+corner-radius=16
+keep-rounded-maximized=true
+
+
+[org/gnome/shell/extensions/tiling-assistant]
+focus-hint-color='rgb(203,67,20)'
+last-version-installed=54
+overridden-settings={'org.gnome.mutter.edge-tiling': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <@mb nothing>}
+
+
+[org/gnome/shell/extensions/window-gap]
+margin-bottom=16
+margin-left=90
+margin-right=90
+margin-top=16
+uniform=false
+
+
+[org/gnome/shell/world-clocks]
+locations=@av []

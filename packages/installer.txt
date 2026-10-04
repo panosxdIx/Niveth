@@ -1,0 +1,5 @@
+calamares
+calamares-data
+calamares-extensions
+calamares-settings-ubuntu-common
+calamares-settings-ubuntu-common-data

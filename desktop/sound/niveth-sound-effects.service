@@ -1,0 +1,15 @@
+[Unit]
+Description=Niveth Mouse Sound Effects
+After=graphical-session.target pipewire.service pipewire-pulse.service wireplumber.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/lib/niveth/sound-effects/niveth-sound-effects.py
+Restart=on-failure
+RestartSec=2
+KillSignal=SIGINT
+Environment=PYGAME_HIDE_SUPPORT_PROMPT=1
+
+[Install]
+WantedBy=graphical-session.target

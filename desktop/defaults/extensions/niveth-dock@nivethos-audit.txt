@@ -1,0 +1,186 @@
+============================================================
+EXTENSION: niveth-dock@nivethos
+============================================================
+
+--- metadata.json ---
+{
+  "name": "Niveth Dock",
+  "description": "A calm, floating application dock for Niveth OS with app and folder pins.",
+  "uuid": "niveth-dock@nivethos",
+  "shell-version": ["50"]
+}
+
+--- stylesheet.css ---
+/* Niveth Dock — v27
+ * Same Dock design as v24.
+ * Refined light/dark context-menu colors only.
+ */
+.niveth-dock-area {
+    background-color: transparent;
+}
+
+.niveth-dock {
+    spacing: 8px;
+    padding: 6px 12px;
+    height: 66px;
+    border-radius: 33px;
+    border-width: 1px;
+    border-style: solid;
+    transition-duration: 180ms;
+}
+
+.niveth-dock.light {
+    background-color: rgba(247, 250, 252, 0.84);
+    border-color: rgba(255, 255, 255, 0.50);
+    box-shadow: 0 10px 32px rgba(40, 55, 75, 0.10);
+}
+
+.niveth-dock.dark {
+    background-color: rgba(24, 37, 50, 0.84);
+    border-color: rgba(150, 175, 205, 0.13);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.20);
+}
+
+.niveth-dock-apps,
+.niveth-dock-folders {
+    spacing: 6px;
+}
+
+.niveth-dock-app-button,
+.niveth-dock-folder-button {
+    width: 52px;
+    height: 52px;
+    padding: 6px;
+    border-radius: 17px;
+    background-color: transparent;
+    transition-duration: 160ms;
+}
+
+.niveth-dock.light .niveth-dock-app-button:hover,
+.niveth-dock.light .niveth-dock-folder-button:hover {
+    background-color: rgba(255, 255, 255, 0.48);
+    transform: scale(1.05);
+}
+
+.niveth-dock.dark .niveth-dock-app-button:hover,
+.niveth-dock.dark .niveth-dock-folder-button:hover {
+    background-color: rgba(220, 231, 244, 0.08);
+    transform: scale(1.05);
+}
+
+.niveth-dock-app-icon,
+.niveth-dock-folder-icon {
+    -st-icon-shadow: 0 2px 7px rgba(18, 31, 43, 0.14);
+}
+
+.niveth-dock-running-indicator {
+    margin-top: 1px;
+    border-radius: 4px;
+}
+
+.niveth-dock.light .niveth-dock-running-indicator {
+    background-color: #7891a6;
+}
+
+.niveth-dock.dark .niveth-dock-running-indicator {
+    background-color: #9db8ce;
+}
+
+.niveth-dock.light .niveth-dock-running-indicator.active {
+    background-color: #496783;
+}
+
+.niveth-dock.dark .niveth-dock-running-indicator.active {
+    background-color: #d0e2ef;
+}
+
+.niveth-dock-app-button.running-only {
+    opacity: 0.92;
+}
+
+/* Raised center, visually connected to the same dock surface. */
+.niveth-dock-core-button {
+    width: 76px;
+    height: 76px;
+    margin: -5px 2px 0 2px;
+    padding: 0;
+    border-radius: 38px;
+    border-width: 1px;
+    border-style: solid;
+    transition-duration: 180ms;
+}
+
+.niveth-dock.light .niveth-dock-core-button {
+    background-color: rgba(247, 250, 252, 0.98);
+    border-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 8px 22px rgba(73, 103, 131, 0.16);
+}
+
+.niveth-dock.dark .niveth-dock-core-button {
+    background-color: rgba(24, 37, 50, 0.98);
+    border-color: rgba(150, 175, 205, 0.13);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.niveth-dock.light .niveth-dock-core-button:hover {
+    background-color: rgba(255, 255, 255, 0.99);
+    transform: scale(1.04);
+}
+
+.niveth-dock.dark .niveth-dock-core-button:hover {
+    background-color: rgba(30, 45, 60, 0.99);
+    transform: scale(1.04);
+}
+
+.niveth-dock-core-glyph {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.niveth-dock.light .niveth-dock-core-glyph {
+    color: #29415d;
+}
+
+.niveth-dock.dark .niveth-dock-core-glyph {
+    color: #dce7f4;
+}
+
+/* Context menu — one Niveth surface, no extra outer frame. */
+.niveth-dock-menu { min-width: 190px; padding: 0; margin: 0; border: 0; box-shadow: none; background-color: transparent; -arrow-border-radius: 0; -arrow-border-width: 0; -arrow-border-color: transparent; }
+.niveth-dock-menu .popup-menu-content { padding: 6px; border-radius: 12px; border-width: 1px; border-style: solid; }
+.niveth-dock-menu.light .popup-menu-content { background-color: rgba(247, 250, 252, 0.99); border-color: rgba(255, 255, 255, 0.90); box-shadow: 0 12px 28px rgba(73, 103, 131, 0.18); color: #29415d; }
+.niveth-dock-menu.dark .popup-menu-content { background-color: rgba(26, 38, 52, 0.99); border-color: rgba(150, 175, 205, 0.13); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32); color: #e7f0f7; }
+.niveth-dock-menu.light .popup-menu-item,
+.niveth-dock-menu.light .popup-menu-item label { min-height: 34px; padding: 0 10px; border-radius: 8px; color: #29415d; font-weight: 500; }
+.niveth-dock-menu.dark .popup-menu-item,
+.niveth-dock-menu.dark .popup-menu-item label { min-height: 34px; padding: 0 10px; border-radius: 8px; color: #e7f0f7; font-weight: 500; }
+.niveth-dock-menu.light .popup-menu-item:hover,
+.niveth-dock-menu.light .popup-menu-item:focus { background-color: rgba(73, 103, 131, 0.10); color: #1e3853; }
+.niveth-dock-menu.dark .popup-menu-item:hover,
+.niveth-dock-menu.dark .popup-menu-item:focus { background-color: rgba(220, 231, 244, 0.10); color: #ffffff; }
+.niveth-dock-menu.light .popup-menu-item:hover label,
+.niveth-dock-menu.light .popup-menu-item:focus label { color: #1e3853; }
+.niveth-dock-menu.dark .popup-menu-item:hover label,
+.niveth-dock-menu.dark .popup-menu-item:focus label { color: #ffffff; }
+.niveth-dock-menu.light .popup-separator-menu-item .separator,
+.niveth-dock-menu.light .popup-menu-separator { background-color: rgba(73, 103, 131, 0.18); }
+.niveth-dock-menu.dark .popup-separator-menu-item .separator,
+.niveth-dock-menu.dark .popup-menu-separator { background-color: rgba(220, 231, 244, 0.16); }
+
+
+/* ============================================================
+ * NIVETH APP DRAGGING
+ * ============================================================ */
+
+.niveth-dock-app-button.dragging {
+    opacity: 0.45;
+}
+
+.niveth-dock-app-button.dragging .niveth-dock-app-icon {
+    transform: scale(0.92);
+}
+
+
+--- extension.js size ---
+1270 /home/modos/.local/share/gnome-shell/extensions/niveth-dock@nivethos/extension.js
+

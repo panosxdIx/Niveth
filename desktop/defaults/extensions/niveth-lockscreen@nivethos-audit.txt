@@ -1,0 +1,100 @@
+============================================================
+EXTENSION: niveth-lockscreen@nivethos
+============================================================
+
+--- metadata.json ---
+{
+  "uuid": "niveth-lockscreen@nivethos",
+  "name": "Niveth Lock Screen",
+  "description": "Niveth native GNOME lock screen.",
+  "version": 9,
+  "version-name": "9.0",
+  "shell-version": ["50"],
+  "session-modes": ["unlock-dialog"]
+}
+
+--- stylesheet.css ---
+/* ============================================================
+   NIVETH LOCK SCREEN v9
+   ============================================================ */
+
+#lockDialogGroup {
+    background-color: transparent !important;
+}
+
+.unlock-dialog {
+    background-color: transparent !important;
+    color: #F4F7FA !important;
+}
+
+/* Password */
+
+.unlock-dialog StEntry {
+    color: #F4F7FA !important;
+    background-color: rgba(20, 30, 42, 0.88) !important;
+
+    border: 1px solid rgba(127, 157, 184, 0.55) !important;
+    border-radius: 14px !important;
+
+    padding: 10px 14px !important;
+
+    caret-color: #F4F7FA !important;
+}
+
+.unlock-dialog StEntry:focus {
+    background-color: rgba(24, 36, 51, 0.95) !important;
+    border-color: rgba(127, 157, 184, 0.95) !important;
+}
+
+/* Unlock button */
+
+.unlock-dialog .modal-dialog-button {
+    color: #F4F7FA !important;
+    background-color: rgba(111, 143, 168, 0.88) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-radius: 12px !important;
+
+    padding: 8px 16px !important;
+}
+
+.unlock-dialog .modal-dialog-button:hover,
+.unlock-dialog .modal-dialog-button:focus {
+    background-color: rgba(123, 154, 179, 0.96) !important;
+}
+
+.unlock-dialog .cancel-button,
+.unlock-dialog .switch-user-button {
+    color: rgba(231, 237, 244, 0.86) !important;
+}
+
+/* Niveth logo */
+
+.niveth-lock-logo {
+    color: rgba(244, 247, 250, 0.95) !important;
+
+    background-color: rgba(20, 30, 42, 0.60) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 14px !important;
+
+    padding: 7px 13px !important;
+
+    font-size: 11pt !important;
+    font-weight: 500 !important;
+}
+
+.niveth-lock-logo-symbol {
+    color: #F4F7FA !important;
+    font-size: 18pt !important;
+}
+
+.niveth-lock-logo-text {
+    color: #F4F7FA !important;
+    font-size: 11pt !important;
+    font-weight: 500 !important;
+}
+
+--- extension.js size ---
+320 /home/modos/.local/share/gnome-shell/extensions/niveth-lockscreen@nivethos/extension.js
+

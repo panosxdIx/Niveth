@@ -1,0 +1,22 @@
+[interface]
+'Yaru-prussiangreen'
+'Yaru-prussiangreen'
+'retrosmart-xcursor-mac-ish-gruvbox'
+'prefer-dark'
+'Noto Sans 11'
+'Noto Sans 11'
+'Noto Mono 11'
+
+[background]
+'file:///home/modos/.local/share/niveth/wallpapers/dark/97c18a14-d3b3-4673-bce9-f535a2fb729c.png'
+'file:///home/modos/.local/share/niveth/wallpapers/dark/97c18a14-d3b3-4673-bce9-f535a2fb729c.png'
+'zoom'
+
+[mutter]
+true
+false
+true
+
+[shell]
+['ding@rastersoft.com', 'tiling-assistant@ubuntu.com', 'window-gap@amirhosseinkarimi.github.io', 'rounded-windows@marcosgt.github.io', 'niveth-dock@nivethos', 'niveth-ui-test@nivethos', 'wack-lockscreen-clock@rinzler69-wastaken.github.com']
+['vivaldi-stable.desktop', 'kitty.desktop', 'com.niveth.Notes.desktop', 'org.kde.okular.desktop', 'com.niveth.AppCenter.desktop', 'org.niveth.Files.desktop']

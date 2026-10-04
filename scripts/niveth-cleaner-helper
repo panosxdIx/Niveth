@@ -1,0 +1,533 @@
+#!/usr/bin/env bash
+
+set -u
+
+MODE="${1:-}"
+
+USER_HOME="${HOME}"
+CACHE_HOME="${XDG_CACHE_HOME:-$USER_HOME/.cache}"
+
+CLEANED_OBJECTS=0
+CLEANED_BYTES=0
+
+log() {
+    printf '[Niveth Cleaner] %s\n' "$1"
+}
+
+add_removed() {
+    local path="$1"
+    local size
+
+    [ -e "$path" ] || return 0
+
+    size="$(du -sb -- "$path" 2>/dev/null | awk '{print $1}')"
+    size="${size:-0}"
+
+    CLEANED_BYTES=$((CLEANED_BYTES + size))
+
+    if rm -rf -- "$path" 2>/dev/null; then
+        CLEANED_OBJECTS=$((CLEANED_OBJECTS + 1))
+    fi
+}
+
+clean_dir_contents() {
+    local dir="$1"
+    local item
+
+    [ -d "$dir" ] || return 0
+
+    while IFS= read -r -d '' item; do
+        add_removed "$item"
+    done < <(
+        find "$dir" -mindepth 1 -maxdepth 1 -print0 2>/dev/null
+    )
+}
+
+browser_running() {
+    # Firefox
+    pgrep -x firefox >/dev/null 2>&1 && return 0
+
+    # LibreWolf
+    pgrep -x librewolf >/dev/null 2>&1 && return 0
+
+    # Zen Browser
+    pgrep -x zen >/dev/null 2>&1 && return 0
+    pgrep -x zen-bin >/dev/null 2>&1 && return 0
+
+    # Waterfox
+    pgrep -x waterfox >/dev/null 2>&1 && return 0
+    pgrep -x waterfox-bin >/dev/null 2>&1 && return 0
+
+    # Floorp
+    pgrep -x floorp >/dev/null 2>&1 && return 0
+
+    # Mullvad Browser
+    pgrep -x mullvad-browser >/dev/null 2>&1 && return 0
+
+    # Chromium
+    pgrep -x chromium >/dev/null 2>&1 && return 0
+    pgrep -x chromium-browser >/dev/null 2>&1 && return 0
+
+    # Google Chrome
+    pgrep -x google-chrome >/dev/null 2>&1 && return 0
+    pgrep -x google-chrome-stable >/dev/null 2>&1 && return 0
+    pgrep -x chrome >/dev/null 2>&1 && return 0
+
+    # Brave
+    pgrep -x brave >/dev/null 2>&1 && return 0
+    pgrep -x brave-browser >/dev/null 2>&1 && return 0
+
+    # Vivaldi
+    pgrep -x vivaldi >/dev/null 2>&1 && return 0
+    pgrep -x vivaldi-bin >/dev/null 2>&1 && return 0
+
+    # Microsoft Edge
+    pgrep -x microsoft-edge >/dev/null 2>&1 && return 0
+    pgrep -x microsoft-edge-stable >/dev/null 2>&1 && return 0
+    pgrep -x msedge >/dev/null 2>&1 && return 0
+
+    # Opera
+    pgrep -x opera >/dev/null 2>&1 && return 0
+    pgrep -x opera-bin >/dev/null 2>&1 && return 0
+
+    # Zen Browser
+    pgrep -x zen >/dev/null 2>&1 && return 0
+    pgrep -x zen-bin >/dev/null 2>&1 && return 0
+
+    return 1
+}
+
+clean_niveth_cache() {
+    log "Cleaning Niveth cache..."
+    clean_dir_contents "$CACHE_HOME/niveth"
+}
+
+clean_user_thumbnails() {
+    log "Cleaning thumbnail cache..."
+    clean_dir_contents "$CACHE_HOME/thumbnails"
+}
+
+clean_known_browser_caches() {
+    local root
+
+    if browser_running; then
+        log "A supported browser is still running."
+        log "Browser caches will NOT be removed while a browser is open."
+        return 0
+    fi
+
+    log "Cleaning browser caches..."
+
+    # Firefox
+    for root in \
+        "$USER_HOME/.cache/mozilla" \
+        "$USER_HOME/.cache/librewolf"
+    do
+        [ -d "$root" ] || continue
+
+        while IFS= read -r -d '' item; do
+            add_removed "$item"
+        done < <(
+            find "$root" -type d \
+                \( -name "cache2" -o -name "startupCache" \) \
+                -print0 2>/dev/null
+        )
+    done
+
+    # Chromium-family browsers
+    for root in \
+        "$USER_HOME/.cache/chromium" \
+        "$USER_HOME/.cache/google-chrome" \
+        "$USER_HOME/.cache/BraveSoftware" \
+        "$USER_HOME/.cache/vivaldi" \
+        "$USER_HOME/.cache/microsoft-edge" \
+        "$USER_HOME/.cache/opera" \
+        "$USER_HOME/.config/chromium" \
+        "$USER_HOME/.config/google-chrome" \
+        "$USER_HOME/.config/BraveSoftware/Brave-Browser" \
+        "$USER_HOME/.config/vivaldi" \
+        "$USER_HOME/.config/microsoft-edge" \
+        "$USER_HOME/.config/opera"
+    do
+        [ -d "$root" ] || continue
+
+        while IFS= read -r -d '' item; do
+            add_removed "$item"
+        done < <(
+            find "$root" -type d \
+                \( \
+                    -name "Cache" \
+                    -o -name "Code Cache" \
+                    -o -name "GPUCache" \
+                    -o -name "DawnCache" \
+                    -o -name "CacheStorage" \
+                \) \
+                -print0 2>/dev/null
+        )
+
+        while IFS= read -r -d '' item; do
+            add_removed "$item"
+        done < <(
+            find "$root" -type d \
+                -path '*/Service Worker/CacheStorage' \
+                -print0 2>/dev/null
+        )
+    done
+}
+
+clean_browser_privacy_data() {
+    local profile
+    local root
+
+    if browser_running; then
+        log "A supported browser is still running."
+        log "Cookies/history will NOT be removed while a browser is open."
+        return 0
+    fi
+
+    log "Cleaning Firefox/LibreWolf cookies and history..."
+
+    for root in \
+        "$USER_HOME/.mozilla/firefox" \
+        "$USER_HOME/.librewolf" \
+        "$USER_HOME/.zen" \
+        "$USER_HOME/.waterfox" \
+        "$USER_HOME/.floorp" \
+        "$USER_HOME/.mullvad-browser"
+    do
+        [ -d "$root" ] || continue
+
+        while IFS= read -r -d '' profile; do
+            python3 - "$profile" <<'PYSQL'
+import sqlite3
+import sys
+from pathlib import Path
+
+profile = Path(sys.argv[1])
+
+# Firefox / LibreWolf history and cookies are SQLite databases.
+# We edit their contents instead of deleting places.sqlite entirely,
+# because places.sqlite also contains bookmarks.
+
+places = profile / "places.sqlite"
+cookies = profile / "cookies.sqlite"
+
+if places.exists():
+    try:
+        con = sqlite3.connect(f"file:{places}?mode=rw", uri=True, timeout=2)
+        con.execute("PRAGMA journal_mode=WAL")
+        con.execute("BEGIN")
+
+        tables = {
+            row[0]
+            for row in con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            )
+        }
+
+        if "moz_historyvisits" in tables:
+            con.execute("DELETE FROM moz_historyvisits")
+
+        if "moz_inputhistory" in tables:
+            con.execute("DELETE FROM moz_inputhistory")
+
+        con.commit()
+        con.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+        con.close()
+    except Exception:
+        try:
+            con.rollback()
+            con.close()
+        except Exception:
+            pass
+
+if cookies.exists():
+    try:
+        con = sqlite3.connect(f"file:{cookies}?mode=rw", uri=True, timeout=2)
+        con.execute("BEGIN")
+
+        tables = {
+            row[0]
+            for row in con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            )
+        }
+
+        if "moz_cookies" in tables:
+            con.execute("DELETE FROM moz_cookies")
+
+        con.commit()
+        con.close()
+    except Exception:
+        try:
+            con.rollback()
+            con.close()
+        except Exception:
+            pass
+PYSQL
+        done < <(
+            find "$root" -mindepth 1 -maxdepth 2 -type d -print0 2>/dev/null
+        )
+    done
+
+    log "Cleaning Chromium-family cookies and history..."
+
+    for root in \
+        "$USER_HOME/.config/chromium" \
+        "$USER_HOME/.config/google-chrome" \
+        "$USER_HOME/.config/BraveSoftware/Brave-Browser" \
+        "$USER_HOME/.config/vivaldi" \
+        "$USER_HOME/.config/microsoft-edge" \
+        "$USER_HOME/.config/opera"
+    do
+        [ -d "$root" ] || continue
+
+        while IFS= read -r -d '' profile; do
+            python3 - "$profile" <<'PYSQL'
+import sqlite3
+import sys
+from pathlib import Path
+
+profile = Path(sys.argv[1])
+
+history = profile / "History"
+cookies = profile / "Cookies"
+
+def clean_db(db, statements):
+    if not db.exists():
+        return
+
+    try:
+        con = sqlite3.connect(f"file:{db}?mode=rw", uri=True, timeout=2)
+        con.execute("BEGIN")
+
+        tables = {
+            row[0]
+            for row in con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            )
+        }
+
+        for table, sql in statements:
+            if table in tables:
+                con.execute(sql)
+
+        con.commit()
+        con.close()
+    except Exception:
+        try:
+            con.rollback()
+            con.close()
+        except Exception:
+            pass
+
+clean_db(
+    history,
+    [
+        ("visits", "DELETE FROM visits"),
+        ("urls", "DELETE FROM urls"),
+        ("visit_source", "DELETE FROM visit_source"),
+        ("keyword_search_terms", "DELETE FROM keyword_search_terms"),
+    ],
+)
+
+clean_db(
+    cookies,
+    [
+        ("cookies", "DELETE FROM cookies"),
+    ],
+)
+PYSQL
+        done < <(
+            find "$root" -mindepth 1 -maxdepth 2 -type d \
+                \( -name "Default" -o -name "Profile *" \) \
+                -print0 2>/dev/null
+        )
+    done
+}
+
+
+close_running_browsers() {
+    local proc
+    local pid
+    local found=0
+
+    if ! browser_running; then
+        log "No supported browsers are running."
+        return 0
+    fi
+
+    log "Requesting running browsers to close..."
+
+    for proc in \
+        firefox \
+        librewolf \
+        chromium \
+        chromium-browser \
+        google-chrome \
+        google-chrome-stable \
+        chrome \
+        brave \
+        brave-browser \
+        vivaldi \
+        vivaldi-bin \
+        microsoft-edge \
+        microsoft-edge-stable \
+        msedge \
+        opera \
+        opera-bin \
+        zen \
+        zen-bin \
+        waterfox \
+        waterfox-bin \
+        floorp \
+        mullvad-browser
+    do
+        while IFS= read -r pid; do
+            [ -n "$pid" ] || continue
+
+            found=1
+            log "Requesting $proc (PID $pid) to close..."
+            kill -TERM "$pid" 2>/dev/null || true
+        done < <(pgrep -x "$proc" 2>/dev/null || true)
+    done
+
+    [ "$found" -eq 1 ] || return 0
+
+    log "Waiting for browsers to close..."
+
+    for _ in {1..15}; do
+        if ! browser_running; then
+            log "All supported browsers are closed."
+            return 0
+        fi
+        sleep 1
+    done
+
+    if browser_running; then
+        log "A browser did not close within 15 seconds."
+        log "Cleanup has been aborted for safety."
+        return 1
+    fi
+
+    return 0
+}
+
+clean_apt_cache() {
+    log "Cleaning APT package cache..."
+
+    command -v apt-get >/dev/null 2>&1 || return 0
+
+    if [ "$(id -u)" -eq 0 ]; then
+        if apt-get clean >/dev/null 2>&1; then
+            log "APT cache cleaned."
+        else
+            log "APT cache cleanup failed."
+        fi
+        return 0
+    fi
+
+    if command -v pkexec >/dev/null 2>&1; then
+        if pkexec apt-get clean >/dev/null 2>&1; then
+            log "APT cache cleaned."
+        else
+            log "APT cache cleanup cancelled or failed."
+        fi
+    elif command -v sudo >/dev/null 2>&1; then
+        if sudo apt-get clean >/dev/null 2>&1; then
+            log "APT cache cleaned."
+        else
+            log "APT cache cleanup cancelled or failed."
+        fi
+    else
+        log "APT cache cleanup skipped (no authorization helper available)."
+    fi
+}
+
+flush_dns_cache() {
+    log "Refreshing DNS cache..."
+
+    if command -v resolvectl >/dev/null 2>&1; then
+        resolvectl flush-caches >/dev/null 2>&1 || true
+    elif command -v systemd-resolve >/dev/null 2>&1; then
+        systemd-resolve --flush-caches >/dev/null 2>&1 || true
+    fi
+}
+
+format_bytes() {
+    local bytes="$1"
+
+    awk -v b="$bytes" '
+        function human(x) {
+            if (x >= 1073741824) return sprintf("%.2f GiB", x / 1073741824)
+            if (x >= 1048576)    return sprintf("%.2f MiB", x / 1048576)
+            if (x >= 1024)       return sprintf("%.2f KiB", x / 1024)
+            return sprintf("%d B", x)
+        }
+        BEGIN { print human(b) }
+    '
+}
+
+run_safe_clean() {
+    log "Starting safe cleanup..."
+
+    clean_niveth_cache
+    clean_known_browser_caches
+    clean_user_thumbnails
+    clean_apt_cache
+    flush_dns_cache
+
+    log "Safe cleanup complete."
+    log "Removed objects: $CLEANED_OBJECTS"
+    log "Recovered: $(format_bytes "$CLEANED_BYTES")"
+}
+
+run_full_clean() {
+    log "Starting full cleanup..."
+
+    clean_niveth_cache
+    clean_known_browser_caches
+    clean_user_thumbnails
+    clean_browser_privacy_data
+    clean_apt_cache
+    flush_dns_cache
+
+    log "Full cleanup complete."
+    log "Removed objects: $CLEANED_OBJECTS"
+    log "Recovered: $(format_bytes "$CLEANED_BYTES")"
+}
+
+
+run_power_clean() {
+    log "Preparing system for restart/shutdown..."
+
+    if ! close_running_browsers; then
+        log "Power cleanup cancelled."
+        return 2
+    fi
+
+    NIVETH_POWER_CLEAN=1 run_full_clean
+}
+
+# Execute cleanup only when this file is run directly.
+# This also allows the helper functions to be safely sourced by Niveth tools.
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    case "$MODE" in
+        --safe-clean)
+            run_safe_clean
+            ;;
+        --full-clean)
+            run_full_clean
+            ;;
+        --power-clean)
+            run_power_clean
+            ;;
+        *)
+            echo "Usage:"
+            echo "  $0 --safe-clean"
+            echo "  $0 --full-clean"
+            echo "  $0 --power-clean"
+            exit 1
+            ;;
+    esac
+fi

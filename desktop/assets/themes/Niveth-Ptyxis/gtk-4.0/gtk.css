@@ -1,0 +1,51 @@
+/*
+ * Niveth Ptyxis Glass
+ *
+ * Window-level translucent background.
+ */
+
+window,
+.background,
+.background:backdrop {
+    background-color: rgba(24, 36, 51, 0.50);
+    background-image: none;
+}
+
+window > *,
+window > * > * {
+    background-color: transparent;
+}
+
+decoration {
+    background-color: rgba(24, 36, 51, 0.50);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Ptyxis terminal surface */
+vte-terminal,
+terminal {
+    background-color: transparent;
+    background-image: none;
+}
+
+/* Keep text clean and readable */
+textview,
+textview.view {
+    background-color: transparent;
+}
+
+/* Selection */
+selection {
+    background-color: rgba(127, 157, 184, 0.35);
+}
+
+/* Minimal scrollbar */
+scrollbar slider {
+    background-color: rgba(231, 237, 244, 0.25);
+    border-radius: 999px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(231, 237, 244, 0.40);
+}

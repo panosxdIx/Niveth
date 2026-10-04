@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+set -u
+
+HELPER="/usr/local/bin/niveth-cleaner-helper"
+
+show_power_dialog() {
+    local mode="$1"
+    local DIALOG="${NIVETH_DIALOG:-/usr/local/bin/niveth-power-dialog.py}"
+    local HELPER="${NIVETH_HELPER:-/usr/local/bin/niveth-cleaner-helper}"
+    local result
+
+    case "$mode" in
+        restart|shutdown)
+            ;;
+        *)
+            return 2
+            ;;
+    esac
+
+    if [ ! -x "$DIALOG" ]; then
+        notify-send \
+            --app-name="Niveth" \
+            --urgency=critical \
+            "Niveth System Cleaner" \
+            "Power dialog is not installed. Power action cancelled."
+        return 1
+    fi
+
+    result="$("$DIALOG" "$mode")" || {
+        return 0
+    }
+
+    case "$result" in
+        clean)
+            if [ ! -x "$HELPER" ]; then
+                notify-send \
+                    --app-name="Niveth" \
+                    --urgency=critical \
+                    "Niveth System Cleaner" \
+                    "Cleaner is not installed. Power action cancelled."
+                return 1
+            fi
+
+            if ! "$HELPER" --power-clean; then
+                notify-send \
+                    --app-name="Niveth" \
+                    --urgency=critical \
+                    "Niveth System Cleaner" \
+                    "Cleanup could not be completed. Power action cancelled."
+                return 1
+            fi
+
+            case "$mode" in
+                restart)
+                    systemctl reboot
+                    ;;
+                shutdown)
+                    systemctl poweroff
+                    ;;
+            esac
+            ;;
+
+        normal)
+            case "$mode" in
+                restart)
+                    systemctl reboot
+                    ;;
+                shutdown)
+                    systemctl poweroff
+                    ;;
+            esac
+            ;;
+
+        cancel|"")
+            return 0
+            ;;
+    esac
+}
+
+
+case "${1:-}" in
+    --restart)
+        show_power_dialog restart
+        ;;
+    --shutdown)
+        show_power_dialog shutdown
+        ;;
+    *)
+        echo "Usage:"
+        echo "  $0 --restart"
+        echo "  $0 --shutdown"
+        exit 1
+        ;;
+esac

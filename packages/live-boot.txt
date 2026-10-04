@@ -1,0 +1,10 @@
+# Live boot
+casper
+
+# Linux kernel
+linux-generic
+
+# GRUB BIOS/UEFI support
+grub-pc-bin
+grub-efi-amd64
+grub-efi-amd64-bin

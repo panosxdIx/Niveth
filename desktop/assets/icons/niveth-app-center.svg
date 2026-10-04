@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4DC6C8"/>
+      <stop offset="1" stop-color="#0A7D82"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DCEEEF"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5"
+                    flood-color="#102B30" flood-opacity=".30"/>
+    </filter>
+  </defs>
+
+  <rect x="7" y="7" width="114" height="114" rx="28"
+        fill="url(#bg)"/>
+
+  <path d="M39 48
+           H89
+           L94 96
+           C94.5 101 90.5 105 85.5 105
+           H42.5
+           C37.5 105 33.5 101 34 96
+           Z"
+        fill="url(#bag)"
+        filter="url(#shadow)"/>
+
+  <path d="M49 48
+           V39
+           C49 29 55 23 64 23
+           C73 23 79 29 79 39
+           V48"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linecap="round"/>
+
+  <rect x="47" y="61" width="12" height="12" rx="3"
+        fill="#209EA2"/>
+  <rect x="63" y="61" width="12" height="12" rx="3"
+        fill="#209EA2"/>
+  <rect x="47" y="77" width="12" height="12" rx="3"
+        fill="#209EA2"/>
+  <rect x="63" y="77" width="12" height="12" rx="3"
+        fill="#E7B847"/>
+</svg>

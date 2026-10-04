@@ -1,0 +1,82 @@
+{
+  "source": "Preferences.niveth-privacy-backup-20260916-221549",
+  "matched_backup_settings": 18,
+  "changed_or_added_settings": 7,
+  "settings": {
+    "account_tracker_service_last_update": {
+      "value": "13434056442161749",
+      "current": "13434234282836454"
+    },
+    "commerce_daily_metrics_last_update_time": {
+      "value": "13434056442152529",
+      "current": "13434234282743725"
+    },
+    "gaia_cookie": {
+      "value": {
+        "changed_time": 1789582968.404464,
+        "hash": "Fxlb9/xJGVU/G3OSNBZ0MjxK0i8=",
+        "last_list_accounts_binary_data": "Cq8BCAESClBhbm9zIHhkSXgaEnBhbm9zMTk3QGdtYWlsLmNvbSJiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1YT3FSRXlzWWh5ay9BQUFBQUFBQUFBSS9BQUFBQUFBQUFBQS9GMy03V2UtdUNrOC9zNDgtYy9waG90by5qcGcoATABOABIAVIVMTA1MDE2ODM3OTg5NzEyNTY1NDU0eAGCAQVQYW5vcw==",
+        "periodic_report_time_2": "13434056442103682"
+      },
+      "current": {
+        "changed_time": 1789582968.404464,
+        "hash": "Fxlb9/xJGVU/G3OSNBZ0MjxK0i8=",
+        "last_list_accounts_binary_data": "Cq8BCAESClBhbm9zIHhkSXgaEnBhbm9zMTk3QGdtYWlsLmNvbSJiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1YT3FSRXlzWWh5ay9BQUFBQUFBQUFBSS9BQUFBQUFBQUFBQS9GMy03V2UtdUNrOC9zNDgtYy9waG90by5qcGcoATABOABIAVIVMTA1MDE2ODM3OTg5NzEyNTY1NDU0eAGCAQVQYW5vcw==",
+        "periodic_report_time_2": "13434234282705251"
+      }
+    },
+    "profile.content_settings.exceptions.permission_autoblocking_data": {
+      "value": {},
+      "current": {
+        "https://www.reddit.com:443,*": {
+          "last_modified": "13434236318993118",
+          "setting": {
+            "FederatedIdentityApi": {
+              "dismiss_count": 2,
+              "dismissal_embargo_days": 1.3434236318993116e+16
+            }
+          }
+        }
+      }
+    },
+    "profile.last_time_password_store_metrics_reported": {
+      "value": 1789582929.918141,
+      "current": 1789764712.075798
+    },
+    "safebrowsing": {
+      "value": {
+        "event_timestamps": {
+          "0": {
+            "12": [
+              "13434057403",
+              "13434057409"
+            ]
+          }
+        },
+        "metrics_last_log_time": "13434056442",
+        "scout_reporting_enabled_when_deprecated": false
+      },
+      "current": {
+        "event_timestamps": {
+          "0": {
+            "10": [
+              "13434309425"
+            ],
+            "12": [
+              "13434057403",
+              "13434057409"
+            ]
+          }
+        },
+        "metrics_last_log_time": "13434234282",
+        "saw_interstitial_sber2": true,
+        "scout_reporting_enabled_when_deprecated": false,
+        "unhandled_sync_password_reuses": {}
+      }
+    },
+    "safebrowsing.metrics_last_log_time": {
+      "value": "13434056442",
+      "current": "13434234282"
+    }
+  }
+}

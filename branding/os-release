@@ -1,0 +1,13 @@
+PRETTY_NAME="Niveth Linux 0.1"
+NAME="Niveth Linux"
+VERSION_ID="0.1"
+VERSION="0.1"
+VERSION_CODENAME=resolute
+ID=niveth
+ID_LIKE=ubuntu
+HOME_URL="https://www.nivethos.example/"
+SUPPORT_URL="https://www.nivethos.example/"
+BUG_REPORT_URL="https://www.nivethos.example/"
+PRIVACY_POLICY_URL="https://www.nivethos.example/"
+UBUNTU_CODENAME=resolute
+LOGO=niveth-logo

@@ -1,0 +1,35 @@
+[/]
+app-picker-layout=[{'com.mattjakeman.ExtensionManager.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'firmware-updater_firmware-updater.desktop': <{'position': <2>}>, 'gnome-language-selector.desktop': <{'position': <3>}>, 'org.gnome.Settings.desktop': <{'position': <4>}>, 'net.nokyan.Resources.desktop': <{'position': <5>}>, 'desktop-security-center_desktop-security-center.desktop': <{'position': <6>}>, 'org.gnome.Characters.desktop': <{'position': <7>}>, 'update-manager.desktop': <{'position': <8>}>, 'Utilities': <{'position': <9>}>, 'System': <{'position': <10>}>, 'org.gnome.TextEditor.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'org.gnome.Yelp.desktop': <{'position': <13>}>, 'org.gnome.Calculator.desktop': <{'position': <14>}>, 'org.gnome.clocks.desktop': <{'position': <15>}>, 'org.gnome.Nautilus.desktop': <{'position': <16>}>, 'niveth-terminal.desktop': <{'position': <17>}>, 'org.gnome.Ptyxis.desktop': <{'position': <18>}>, 'display-im7.q16.desktop': <{'position': <19>}>, 'de.schmidhuberj.tubefeeder.desktop': <{'position': <20>}>}]
+disabled-extensions=['ubuntu-dock@ubuntu.com', 'niveth-app-refresh@nivethos']
+enabled-extensions=['ding@rastersoft.com', 'tiling-assistant@ubuntu.com', 'window-gap@amirhosseinkarimi.github.io', 'rounded-windows@marcosgt.github.io', 'niveth-dock@nivethos', 'niveth-ui-test@nivethos', 'niveth-lockscreen@nivethos', 'niveth-system-monitor@nivethos', 'niveth-topbar@nivethos']
+favorite-apps=['vivaldi-stable.desktop', 'kitty.desktop', 'com.niveth.Notes.desktop', 'org.kde.okular.desktop', 'com.niveth.AppCenter.desktop', 'org.niveth.Files.desktop']
+last-selected-power-profile='power-saver'
+welcome-dialog-last-shown-version='50.1'
+
+[extensions/dash-to-dock]
+dash-max-icon-size=32
+dock-fixed=true
+extend-height=false
+
+[extensions/ding]
+check-x11wayland=true
+icon-size='small'
+
+[extensions/rounded-windows]
+corner-radius=16
+keep-rounded-maximized=true
+
+[extensions/tiling-assistant]
+focus-hint-color='rgb(203,67,20)'
+last-version-installed=54
+overridden-settings={'org.gnome.mutter.edge-tiling': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <@mb nothing>}
+
+[extensions/window-gap]
+margin-bottom=16
+margin-left=90
+margin-right=90
+margin-top=16
+uniform=false
+
+[world-clocks]
+locations=@av []

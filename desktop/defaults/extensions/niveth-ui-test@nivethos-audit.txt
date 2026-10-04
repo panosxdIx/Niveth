@@ -1,0 +1,380 @@
+============================================================
+EXTENSION: niveth-ui-test@nivethos
+============================================================
+
+--- metadata.json ---
+{
+  "name": "Niveth UI Test",
+  "description": "Niveth OS development test.",
+  "uuid": "niveth-ui-test@nivethos",
+  "shell-version": [
+    "50"
+  ],
+  "session-modes": [
+    "user"
+  ]
+}
+
+--- stylesheet.css ---
+/* ==========================================
+   NIVETH TOP BAR v2
+   Calm · Simple · Yours
+   ========================================== */
+
+.niveth-topbar {
+    min-height: 46px;
+    border-radius: 20px;
+
+    background-color: rgba(247, 249, 252, 0.84);
+
+    border: 1px solid rgba(255, 255, 255, 0.50);
+
+    box-shadow:
+        0 10px 30px rgba(40, 55, 75, 0.12);
+
+    padding-left: 10px;
+    padding-right: 12px;
+
+    spacing: 8px;
+}
+
+.niveth-topbar.niveth-dark {
+    background-color: rgba(24, 36, 55, 0.84);
+
+    border-color: rgba(150, 175, 205, 0.13);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.24);
+}
+
+.niveth-left {
+    spacing: 6px;
+    padding-left: 5px;
+}
+
+.niveth-center {
+    min-width: 180px;
+}
+
+.niveth-right {
+    spacing: 2px;
+    padding-right: 2px;
+}
+
+.niveth-logo-button {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 19px;
+
+    background-color: transparent;
+    transition-duration: 160ms;
+}
+
+.niveth-logo-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: scale(1.03);
+}
+
+.niveth-topbar.niveth-dark .niveth-logo-button:hover {
+    background-color: rgba(220, 231, 244, 0.08);
+    transform: scale(1.03);
+}
+
+.niveth-name {
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 2px;
+    padding-right: 12px;
+}
+
+.niveth-clock {
+    font-size: 14px;
+    font-weight: 520;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.niveth-icon-button {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 17.5px;
+
+    background-color: transparent;
+    transition-duration: 160ms;
+}
+
+.niveth-icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: scale(1.03);
+}
+
+.niveth-topbar.niveth-dark .niveth-icon-button:hover {
+    background-color: rgba(220, 231, 244, 0.08);
+    transform: scale(1.03);
+}
+
+.niveth-power-button:hover {
+    background-color: rgba(102, 139, 174, 0.16);
+}
+
+/* Light */
+
+.niveth-topbar,
+.niveth-topbar .niveth-name,
+.niveth-topbar .niveth-clock {
+    color: #29415D;
+}
+
+/* Dark */
+
+.niveth-topbar.niveth-dark,
+.niveth-topbar.niveth-dark .niveth-name,
+.niveth-topbar.niveth-dark .niveth-clock {
+    color: #DCE7F4;
+}
+
+/* Power menu */
+
+.niveth-power-menu {
+    min-width: 250px;
+
+    padding: 14px;
+
+    border-radius: 18px;
+
+    background-color: rgba(248, 250, 252, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 18px 50px rgba(30, 45, 65, 0.18);
+}
+
+.niveth-menu-title {
+    font-size: 18px;
+    font-weight: 600;
+
+    padding: 2px 10px 0 10px;
+}
+
+.niveth-menu-subtitle {
+    font-size: 11px;
+    opacity: 0.56;
+
+    padding: 1px 10px 12px 10px;
+}
+
+.niveth-menu-action {
+    min-height: 38px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    border-radius: 10px;
+}
+
+.niveth-menu-action:hover {
+    background-color: rgba(85, 125, 165, 0.10);
+}
+
+.niveth-dark .niveth-power-menu {
+    background-color: rgba(25, 38, 57, 0.97);
+
+    border-color: rgba(160, 190, 220, 0.12);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.34);
+}
+
+.niveth-dark .niveth-menu-title,
+.niveth-dark .niveth-menu-subtitle,
+.niveth-dark .niveth-menu-action {
+    color: #DCE7F4;
+}
+
+.niveth-dark .niveth-menu-action:hover {
+    background-color: rgba(180, 210, 240, 0.08);
+}
+
+/* ============================================================
+ * NIVETH NOTIFICATIONS
+ * ============================================================ */
+
+/* Notification banners */
+.notification-banner,
+.notification {
+    border-radius: 18px;
+    padding: 12px 14px;
+    margin: 8px;
+    border: 1px solid rgba(127, 157, 184, 0.28);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    .notification-banner,
+    .notification {
+        background-color: rgba(247, 249, 252, 0.88);
+        color: #263442;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .notification-banner,
+    .notification {
+        background-color: rgba(24, 36, 51, 0.88);
+        color: #e7edf4;
+    }
+}
+
+/* Notification title */
+.notification .summary,
+.notification-banner .summary {
+    font-weight: 650;
+    font-size: 11pt;
+}
+
+/* Notification body */
+.notification .body,
+.notification-banner .body {
+    font-size: 10pt;
+    line-height: 1.35em;
+}
+
+/* Notification buttons */
+.notification .notification-button,
+.notification-banner .notification-button {
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 3px;
+}
+
+/* Notification list */
+.message-list {
+    padding: 10px;
+}
+
+/* Notification list items */
+.message-list .message {
+    border-radius: 16px;
+    margin: 6px 0;
+}
+
+/* Clear button */
+.message-list .clear-button {
+    border-radius: 12px;
+    padding: 7px 12px;
+}
+
+/* Subtle hover */
+.notification .notification-button:hover,
+.notification-banner .notification-button:hover,
+.message-list .clear-button:hover {
+    background-color: rgba(127, 157, 184, 0.16);
+}
+
+
+
+/* ============================================================
+ * NIVETH NOTIFICATION BUTTON
+ * ============================================================ */
+
+.niveth-notification-button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0 7px;
+    margin-left: 4px;
+    border-radius: 12px;
+    background-color: transparent;
+    color: rgba(231, 237, 244, 0.92);
+    transition-duration: 160ms;
+}
+
+.niveth-notification-button:hover {
+    background-color: rgba(127, 157, 184, 0.16);
+}
+
+.niveth-notification-button:active {
+    background-color: rgba(127, 157, 184, 0.24);
+}
+
+.niveth-notification-button .system-status-icon {
+    icon-size: 17px;
+}
+
+
+/* ============================================================
+ * NIVETH POWER MENU — READABILITY
+ * ============================================================ */
+
+/* Main power menu panel */
+.niveth-power-menu,
+.niveth-power-menu .popup-menu-content,
+.niveth-power-menu-box,
+.niveth-power-menu-panel {
+    color: #263442;
+}
+
+/* All text inside the power menu */
+.niveth-power-menu StLabel,
+.niveth-power-menu .popup-menu-item-label,
+.niveth-power-menu label,
+.niveth-power-menu-item {
+    color: #263442;
+    text-shadow: none;
+}
+
+/* Menu items */
+.niveth-power-menu .popup-menu-item,
+.niveth-power-menu-item {
+    color: #263442;
+    background-color: transparent;
+    border-radius: 12px;
+}
+
+/* Hover */
+.niveth-power-menu .popup-menu-item:hover,
+.niveth-power-menu-item:hover {
+    color: #263442;
+    background-color: rgba(127, 157, 184, 0.16);
+}
+
+/* Dark mode */
+.niveth-power-menu.dark,
+.niveth-power-menu.dark .popup-menu-item,
+.niveth-power-menu.dark .popup-menu-item-label,
+.niveth-power-menu.dark label,
+.niveth-power-menu.dark StLabel {
+    color: #E7EDF4;
+}
+
+/* Dark hover */
+.niveth-power-menu.dark .popup-menu-item:hover,
+.niveth-power-menu.dark .popup-menu-item:hover .popup-menu-item-label {
+    color: #FFFFFF;
+    background-color: rgba(127, 157, 184, 0.20);
+}
+
+/* Generic fallback for the custom Niveth power menu */
+.niveth-power-menu-panel StLabel,
+.niveth-power-menu-box StLabel {
+    color: #263442;
+}
+
+/* Keep the labels readable against the glass background */
+.niveth-power-menu-panel .niveth-power-label,
+.niveth-power-menu-box .niveth-power-label {
+    color: #263442;
+    font-weight: 500;
+}
+
+
+--- extension.js size ---
+3088 /home/modos/.local/share/gnome-shell/extensions/niveth-ui-test@nivethos/extension.js
+

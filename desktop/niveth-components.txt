@@ -1,0 +1,106 @@
+# ============================================================
+# Niveth Linux 0.1 - Custom Components Manifest
+# Base: Ubuntu 26.04 LTS + GNOME
+# ============================================================
+
+# ------------------------------------------------------------
+# Niveth Files
+# ------------------------------------------------------------
+COPY_FILE /home/modos/Niveth-Files/main.py /usr/lib/niveth/apps/niveth-files/main.py
+COPY_FILE /home/modos/Niveth-Files/styles.css /usr/lib/niveth/apps/niveth-files/styles.css
+COPY_DIR /home/modos/Niveth-Files/icons /usr/lib/niveth/apps/niveth-files/icons
+COPY_FILE /usr/local/share/applications/org.niveth.Files.desktop /usr/share/applications/org.niveth.Files.desktop
+
+# Niveth Files icon
+COPY_FILE /home/modos/Niveth-Files/icons/app/org.niveth.Files.svg /usr/share/icons/hicolor/scalable/apps/org.niveth.Files.svg
+
+
+# ------------------------------------------------------------
+# Niveth Notes
+# ------------------------------------------------------------
+COPY_FILE /home/modos/.local/share/niveth-notes/niveth-notes.py /usr/lib/niveth/apps/niveth-notes/niveth-notes.py
+COPY_FILE /usr/local/share/applications/com.niveth.Notes.desktop /usr/share/applications/com.niveth.Notes.desktop
+
+
+# ------------------------------------------------------------
+# Niveth App Center
+# ------------------------------------------------------------
+COPY_FILE /home/modos/.local/share/niveth-app-center/niveth-app-center.py /usr/lib/niveth/apps/niveth-app-center/niveth-app-center.py
+COPY_FILE /home/modos/.local/share/niveth-app-center/niveth-app-engine.py /usr/lib/niveth/apps/niveth-app-center/niveth-app-engine.py
+COPY_FILE /usr/local/share/applications/com.niveth.AppCenter.desktop /usr/share/applications/com.niveth.AppCenter.desktop
+
+
+# ------------------------------------------------------------
+# Niveth Terminal
+# ------------------------------------------------------------
+COPY_FILE /home/modos/.local/bin/niveth-terminal /usr/local/bin/niveth-terminal
+COPY_FILE /home/modos/.local/share/applications/niveth-terminal.desktop /usr/share/applications/niveth-terminal.desktop
+COPY_FILE /home/modos/.local/share/applications/niveth-ptyxis.desktop /usr/share/applications/niveth-ptyxis.desktop
+
+
+# ------------------------------------------------------------
+# Niveth Kitty integration
+# ------------------------------------------------------------
+COPY_FILE /home/modos/.config/kitty/niveth-context-menu.py /usr/lib/niveth/kitty/niveth-context-menu.py
+COPY_FILE /home/modos/.config/kitty/niveth-dark.conf /usr/lib/niveth/kitty/niveth-dark.conf
+COPY_FILE /home/modos/.config/kitty/niveth-light.conf /usr/lib/niveth/kitty/niveth-light.conf
+COPY_FILE /home/modos/.config/kitty/kitty.conf /usr/lib/niveth/kitty/kitty.conf
+COPY_FILE /home/modos/.local/bin/niveth-kitty-theme /usr/local/bin/niveth-kitty-theme
+COPY_FILE /home/modos/.config/systemd/user/niveth-kitty-theme.service /usr/lib/niveth/systemd/niveth-kitty-theme.service
+COPY_FILE /home/modos/.config/systemd/user/niveth-kitty-theme.timer /usr/lib/niveth/systemd/niveth-kitty-theme.timer
+
+
+# ------------------------------------------------------------
+# Niveth Wallpaper system
+# ------------------------------------------------------------
+COPY_DIR /home/modos/.local/share/niveth/wallpapers /usr/share/niveth/wallpapers
+COPY_FILE /home/modos/.local/bin/niveth-wallpaper-chooser.py /usr/local/bin/niveth-wallpaper-chooser.py
+COPY_FILE /home/modos/.local/bin/niveth-wallpaper-time.py /usr/local/bin/niveth-wallpaper-time.py
+COPY_FILE /home/modos/.config/systemd/user/niveth-wallpaper.service /usr/lib/niveth/systemd/niveth-wallpaper.service
+
+
+# ------------------------------------------------------------
+# Niveth GNOME Extensions
+# ------------------------------------------------------------
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-app-refresh@nivethos /usr/share/gnome-shell/extensions/niveth-app-refresh@nivethos
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-dock@nivethos /usr/share/gnome-shell/extensions/niveth-dock@nivethos
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-lockscreen@nivethos /usr/share/gnome-shell/extensions/niveth-lockscreen@nivethos
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-topbar@nivethos /usr/share/gnome-shell/extensions/niveth-topbar@nivethos
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-system-monitor@nivethos /usr/share/gnome-shell/extensions/niveth-system-monitor@nivethos
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/niveth-ui-test@nivethos /usr/share/gnome-shell/extensions/niveth-ui-test@nivethos
+
+# Current host GNOME extensions that are part of the Niveth desktop state
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/window-gap@amirhosseinkarimi.github.io /usr/share/gnome-shell/extensions/window-gap@amirhosseinkarimi.github.io
+COPY_DIR /home/modos/.local/share/gnome-shell/extensions/rounded-windows@marcosgt.github.io /usr/share/gnome-shell/extensions/rounded-windows@marcosgt.github.io
+
+
+# ------------------------------------------------------------
+# Niveth theme
+# ------------------------------------------------------------
+COPY_DIR /home/modos/.local/share/themes/Niveth-Ptyxis /usr/share/themes/Niveth-Ptyxis
+
+
+# ------------------------------------------------------------
+# Niveth desktop launcher / post-install support
+# ------------------------------------------------------------
+COPY_FILE /usr/local/bin/niveth-app-center /usr/local/bin/niveth-app-center
+COPY_FILE /home/modos/.local/bin/niveth-app-search /usr/local/bin/niveth-app-search
+COPY_FILE /usr/local/bin/niveth-files /usr/local/bin/niveth-files
+COPY_FILE /home/modos/.local/bin/niveth-post-install /usr/local/bin/niveth-post-install
+COPY_DIR /home/modos/.local/share/icons/retrosmart-xcursor-mac-ish-gruvbox /usr/share/icons/retrosmart-xcursor-mac-ish-gruvbox
+COPY_FILE /home/modos/Niveth/desktop/assets/icons/com.niveth.Notes.svg /usr/share/icons/hicolor/scalable/apps/com.niveth.Notes.svg
+COPY_FILE /home/modos/Niveth/desktop/assets/icons/niveth-app-center.svg /usr/share/icons/hicolor/scalable/apps/niveth-app-center.svg
+COPY_FILE /home/modos/Niveth/branding/os-release /usr/lib/os-release
+COPY_DIR /home/modos/Niveth/desktop/defaults/kitty /etc/skel/.config/kitty
+COPY_FILE /home/modos/Niveth/desktop/defaults/dconf/90-niveth-wellbeing /etc/dconf/db/local.d/90-niveth-wellbeing
+COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/Niveth-Light/settings.json /etc/niveth/vivaldi/Niveth-Light/settings.json
+COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/Niveth-Dark/settings.json /etc/niveth/vivaldi/Niveth-Dark/settings.json
+COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/niveth-vivaldi /usr/local/bin/niveth-vivaldi
+COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/vivaldi-stable.desktop /usr/share/applications/vivaldi-stable.desktop
+
+# ------------------------------------------------------------
+# Niveth Mouse Sound Effects
+# ------------------------------------------------------------
+COPY_DIR /home/modos/Niveth/desktop/sound/sound-effects /usr/share/niveth/sound-effects
+COPY_FILE /home/modos/Niveth/desktop/sound/niveth-sound-effects.py /usr/lib/niveth/sound-effects/niveth-sound-effects.py
+COPY_FILE /home/modos/Niveth/desktop/sound/niveth-sound-effects.service /usr/lib/niveth/systemd/niveth-sound-effects.service

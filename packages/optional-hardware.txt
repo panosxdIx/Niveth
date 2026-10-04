@@ -1,0 +1,6 @@
+# Hardware detection
+ubuntu-drivers-common
+
+# NVIDIA drivers are NOT hardcoded.
+# The installed system will detect supported NVIDIA hardware
+# and select an appropriate driver when repositories/network are available.

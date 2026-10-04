@@ -1,0 +1,6 @@
+kitty
+vivaldi-stable
+ptyxis
+okular
+python3-evdev
+python3-pygame

@@ -1,0 +1,26 @@
+============================================================
+EXTENSION: niveth-topbar@nivethos
+============================================================
+
+--- metadata.json ---
+{
+  "name": "Niveth Top Bar",
+  "description": "First Niveth OS desktop experiment.",
+  "uuid": "niveth-topbar@nivethos",
+  "shell-version": [
+    "50"
+  ]
+}
+
+--- stylesheet.css ---
+.niveth-click-test {
+    min-width: 50px;
+    min-height: 28px;
+    padding: 0 12px;
+    background-color: rgba(255, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+--- extension.js size ---
+50 /home/modos/.local/share/gnome-shell/extensions/niveth-topbar@nivethos/extension.js
+

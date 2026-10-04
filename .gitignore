@@ -1,8 +1,60 @@
-build/rootfs/
-build/iso-work/
-build/cache/
-iso/*.iso
+# ============================================================
+# Niveth OS - Git ignore
+# ============================================================
+
+# Build output / generated files
+/build/
+/iso/*.iso
+/iso/*.iso.*
+/build-iso/
+/build-output/
+
+# Caches / temporary files
+.cache/
+.cache-*/
 *.tmp
 *.log
+*.swp
+*.swo
+*~
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Development backups
+/dev-backups/
+/integration-backups/
+/test-mechvibes/
+
+# Backup copies created during development
+/backup-*/
+**/*.backup
+**/*.backup-*
+**/*.before-*
+**/*.broken-*
+
+# Known development/archive artifacts
+asset-source-audit.txt
+finalize-source-before-iso.txt
+lockscreen-v10-current.txt
+niveth-assets-only.txt
+ubuntu-inventory-*.txt
+vivaldi-theme-extract.txt
+
+# Generated package/archive files
+*.deb
+*.rpm
+*.tar
+*.tar.gz
+*.zip
+
+# Local machine / editor files
+.vscode/
+.idea/
+.directory
+
+# OS-specific files
+.DS_Store
+Thumbs.db

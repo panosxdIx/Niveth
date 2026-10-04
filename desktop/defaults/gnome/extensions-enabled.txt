@@ -1,0 +1,11 @@
+ding@rastersoft.com
+niveth-dock@nivethos
+niveth-ui-test@nivethos
+rounded-windows@marcosgt.github.io
+snapd-prompting@canonical.com
+snapd-search-provider@canonical.com
+tiling-assistant@ubuntu.com
+ubuntu-appindicators@ubuntu.com
+wack-lockscreen-clock@rinzler69-wastaken.github.com
+web-search-provider@ubuntu.com
+window-gap@amirhosseinkarimi.github.io

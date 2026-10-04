@@ -1,0 +1,39 @@
+---
+componentName: niveth
+
+welcomeStyleCalamares: false
+welcomeExpandingLogo: false
+
+windowExpanding: noexpand
+windowSize: 1024px,680px
+windowPlacement: center
+
+sidebar: widget
+navigation: widget
+
+strings:
+    productName: "Niveth Linux"
+    shortProductName: "Niveth"
+    version: "0.1"
+    shortVersion: "0.1"
+    versionedName: "Niveth Linux 0.1"
+    shortVersionedName: "Niveth 0.1"
+    bootloaderEntryName: "Niveth Linux"
+    productUrl: ""
+    supportUrl: ""
+    knownIssuesUrl: ""
+    releaseNotesUrl: ""
+    donateUrl: ""
+
+images:
+    productIcon: "squid.png"
+    productLogo: "squid.png"
+
+style:
+    SidebarBackground: "#1B1B1B"
+    SidebarText: "#E6E6E6"
+    SidebarTextCurrent: "#FFFFFF"
+    SidebarBackgroundCurrent: "#303030"
+
+slideshow: "show.qml"
+slideshowAPI: 2

@@ -1,0 +1,9 @@
+[org/gnome/desktop/break-reminders]
+selected-breaks=['movement']
+
+[org/gnome/desktop/break-reminders/movement]
+interval-seconds=uint32 3000
+duration-seconds=uint32 480
+notify=true
+fade-screen=true
+play-sound=true
