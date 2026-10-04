@@ -46,6 +46,12 @@ Custom Niveth wallpaper artwork and Light/Dark wallpaper pairs.
 
 Integrated keyboard and mouse sound functionality.
 
+### Niveth Files
+
+![Niveth Files](docs/screenshots/niveth-files.png)
+
+The customized Niveth Files experience provides a clean and simple way to manage files with the Niveth visual identity.
+
 ## Project Structure
 
 The Niveth repository is organized into clear areas for the operating system, desktop experience, installer, packages, documentation, and build tooling.
