@@ -48,21 +48,10 @@ Niveth includes integrated keyboard and mouse sound functionality through Mechvi
 
 ## Project Structure
 
-```text
-Niveth/
-├── branding/
-├── desktop/
-├── installer/
-├── packages/
-├── scripts/
-├── tests/
-├── tools/
-├── docs/
-│   └── screenshots/
-├── project.conf
-├── README.md
-└── CONTRIBUTING.md
-```
+-- screenshots/
+|-- project.conf
+|-- README.md
+
 
 ## Building Niveth
 
