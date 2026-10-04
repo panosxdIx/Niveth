@@ -42,7 +42,7 @@ Custom Niveth wallpaper artwork and Light/Dark wallpaper pairs.
 
 ### Sound Experience
 
-![MechvibesDX](docs/screenshots/mechtvibes.png)
+![MechvibesDX](docs/screenshots/mechvibes.png)
 
 Integrated keyboard and mouse sound functionality.
 
