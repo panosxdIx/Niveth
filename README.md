@@ -48,10 +48,16 @@ Niveth includes integrated keyboard and mouse sound functionality through Mechvi
 
 ## Project Structure
 
--- screenshots/
-|-- project.conf
-|-- README.md
+The repository is organized into the following main areas:
 
+- **branding/** - Operating-system branding and identity
+- **desktop/** - GNOME configuration, themes, wallpapers and desktop components
+- **installer/** - Calamares configuration and installer branding
+- **packages/** - Package definitions
+- **scripts/** - Build, setup and validation scripts
+- **tests/** - Test files
+- **tools/** - Development tools
+- **docs/** - Project documentation and screenshots
 
 ## Building Niveth
 
