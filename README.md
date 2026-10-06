@@ -4,9 +4,9 @@ Niveth Linux is a custom Linux distribution focused on a calm, simple and polish
 
 ## About
 
-Niveth 0.1 is built on Ubuntu 26.04 LTS and uses GNOME as its desktop environment.
+Niveth 0.1.1 is built on Ubuntu 26.04 LTS and uses GNOME as its desktop environment.
 
-The project includes custom desktop configuration, wallpapers and visual assets, GNOME defaults, Kitty configuration, Vivaldi configuration, Niveth desktop components, Calamares installer configuration, audio and mouse sound integration, and ISO build and validation scripts.
+The project includes custom desktop configuration, wallpapers and visual assets, GNOME defaults, Kitty configuration, Brave configuration, Niveth desktop components, Calamares installer configuration, audio and mouse sound integration, and ISO build and validation scripts.
 
 ## Features
 
