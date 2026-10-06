@@ -1,0 +1,7 @@
+[Unit]
+Description=Niveth Brave Light Theme
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface color-scheme prefer-light
+ExecStart=/usr/local/bin/niveth-brave-auto-theme

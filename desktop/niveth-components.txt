@@ -93,10 +93,10 @@ COPY_FILE /home/modos/Niveth/desktop/assets/icons/niveth-app-center.svg /usr/sha
 COPY_FILE /home/modos/Niveth/branding/os-release /usr/lib/os-release
 COPY_DIR /home/modos/Niveth/desktop/defaults/kitty /etc/skel/.config/kitty
 COPY_FILE /home/modos/Niveth/desktop/defaults/dconf/90-niveth-wellbeing /etc/dconf/db/local.d/90-niveth-wellbeing
-COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/Niveth-Light/settings.json /etc/niveth/vivaldi/Niveth-Light/settings.json
-COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/Niveth-Dark/settings.json /etc/niveth/vivaldi/Niveth-Dark/settings.json
-COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/niveth-vivaldi /usr/local/bin/niveth-vivaldi
-COPY_FILE /home/modos/Niveth/desktop/defaults/vivaldi/vivaldi-stable.desktop /usr/share/applications/vivaldi-stable.desktop
+COPY_DIR /home/modos/Niveth/desktop/defaults/brave/newtab /usr/share/niveth/brave/newtab
+COPY_DIR /home/modos/Niveth/desktop/defaults/brave/profile /etc/skel/.config/BraveSoftware/Brave-Browser
+COPY_FILE /home/modos/Niveth/desktop/defaults/brave/niveth-brave /usr/local/bin/niveth-brave
+COPY_FILE /home/modos/Niveth/desktop/defaults/brave/brave-browser.desktop /usr/share/applications/brave-browser.desktop
 
 # ------------------------------------------------------------
 # Niveth Mouse Sound Effects

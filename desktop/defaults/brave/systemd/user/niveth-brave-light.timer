@@ -1,0 +1,11 @@
+[Unit]
+Description=Niveth Brave Light Theme Timer
+
+[Timer]
+OnCalendar=*-*-* 07:00:00
+AccuracySec=1min
+Persistent=true
+Unit=niveth-brave-light.service
+
+[Install]
+WantedBy=timers.target

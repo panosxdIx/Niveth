@@ -70,7 +70,7 @@ echo
 echo "=== 2. OS BRANDING ==="
 
 if [ -f "$ROOTFS/usr/lib/os-release" ]; then
-    grep -q '^PRETTY_NAME="Niveth Linux 0.1"$' "$ROOTFS/usr/lib/os-release" \
+    grep -q '^PRETTY_NAME="Niveth Linux 0.1.1"$' "$ROOTFS/usr/lib/os-release" \
         && pass "Niveth os-release branding" \
         || fail "Niveth os-release branding"
 else
@@ -273,91 +273,76 @@ else
 fi
 
 echo
-echo "=== 12. VIVALDI THEMES ==="
+echo "=== 12. BRAVE Niveth THEME / NEW TAB ==="
 
-check_file \
-    "$ROOTFS/etc/niveth/vivaldi/Niveth-Light/settings.json" \
-    "Vivaldi Niveth Light"
+check_file     "$ROOTFS/usr/local/bin/niveth-brave"     "Niveth Brave wrapper"
 
-check_file \
-    "$ROOTFS/etc/niveth/vivaldi/Niveth-Dark/settings.json" \
-    "Vivaldi Niveth Dark"
+check_file     "$ROOTFS/usr/share/applications/brave-browser.desktop"     "Niveth Brave launcher"
 
-check_file \
-    "$ROOTFS/usr/local/bin/niveth-vivaldi" \
-    "Niveth Vivaldi wrapper"
+check_file     "$ROOTFS/etc/skel/.local/share/niveth/brave/newtab/manifest.json"     "Niveth Brave New Tab manifest"
 
-check_file \
-    "$ROOTFS/usr/share/applications/vivaldi-stable.desktop" \
-    "Niveth Vivaldi launcher"
+check_file     "$ROOTFS/etc/skel/.local/share/niveth/brave/newtab/newtab.html"     "Niveth Brave New Tab page"
 
-if grep -q 'cc676bd6-bb1a-4199-a3da-27484f7ced13' \
-    "$ROOTFS/etc/niveth/vivaldi/Niveth-Light/settings.json" 2>/dev/null; then
-    pass "Niveth Light theme ID"
-else
-    fail "Niveth Light theme ID missing"
-fi
+check_file     "$ROOTFS/etc/skel/.local/share/niveth/brave/themes/light/manifest.json"     "Niveth Brave Light theme"
 
-if grep -q 'cc134c1f-b0d6-43b4-9e25-af813f93de5b' \
-    "$ROOTFS/etc/niveth/vivaldi/Niveth-Dark/settings.json" 2>/dev/null; then
-    pass "Niveth Dark theme ID"
-else
-    fail "Niveth Dark theme ID missing"
-fi
+check_file     "$ROOTFS/etc/skel/.local/share/niveth/brave/themes/dark/manifest.json"     "Niveth Brave Dark theme"
 
 echo
-echo "=== 13. VIVALDI PROFILE PRIVACY ==="
+echo "=== 13. BRAVE PROFILE ==="
 
-if [ -d "$ROOTFS/home/niveth/.config/vivaldi" ]; then
-    warn "Vivaldi profile exists in rootfs; verify it contains no personal data"
+if [ -d "$ROOTFS/etc/skel/.config/BraveSoftware/Brave-Browser" ]; then
+    pass "Niveth Brave default profile present in /etc/skel"
 else
-    pass "No pre-seeded personal Vivaldi profile found"
+    fail "Niveth Brave default profile missing from /etc/skel"
 fi
 
-echo
 echo "=== 14. MANIFEST ==="
 
 check_file "$MANIFEST" "Niveth components manifest"
 
-for entry in \
-    "90-niveth-wellbeing" \
-    "Niveth-Light/settings.json" \
-    "Niveth-Dark/settings.json" \
-    "niveth-vivaldi" \
-    "vivaldi-stable.desktop" \
-    "retrosmart-xcursor-mac-ish-gruvbox"
-do
-    if grep -q "$entry" "$MANIFEST" 2>/dev/null; then
-        pass "Manifest entry: $entry"
-    else
-        fail "Missing manifest entry: $entry"
-    fi
-done
-
 echo
-echo "=== 15. SOURCE ASSETS ==="
-
-check_file \
-    "$PROJECT_ROOT/branding/os-release" \
-    "Source os-release"
-
-check_file \
-    "$PROJECT_ROOT/desktop/assets/icons/com.niveth.Notes.svg" \
-    "Source Notes icon"
-
-check_file \
-    "$PROJECT_ROOT/desktop/assets/icons/niveth-app-center.svg" \
-    "Source App Center icon"
-
-check_dir \
-    "$PROJECT_ROOT/desktop/defaults/vivaldi/Niveth-Light" \
-    "Source Niveth Light theme directory"
-
-check_dir \
-    "$PROJECT_ROOT/desktop/defaults/vivaldi/Niveth-Dark" \
-    "Source Niveth Dark theme directory"
-
 echo
+echo "=== 14B. LICENSING / SOURCE COMPLIANCE ==="
+
+check_file     "$ROOTFS/usr/share/doc/niveth/LICENSE"     "Niveth GPL license"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/COPYRIGHT.md"     "Niveth copyright notice"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/BRANDING-NOTICE.md"     "Niveth branding notice"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/THIRD-PARTY-NOTICES.md"     "Third-party notices"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/SOURCE-CODE.md"     "Corresponding source notice"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/LICENSES/GPL-3.0.txt"     "GPL-3.0 license text"
+
+check_file     "$ROOTFS/usr/share/doc/niveth/license-inventory.tsv"     "Release license inventory"
+
+if find "$ROOTFS/usr/share/src"     -maxdepth 1     -type f     -name 'niveth-linux-*-corresponding-source.tar.gz'     -print -quit 2>/dev/null | grep -q .
+then
+    pass "Niveth corresponding source archive"
+else
+    fail "Niveth corresponding source archive missing"
+fi
+
+echo "=== 15. BRAVE SOURCE ASSETS ==="
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/brave-browser.desktop"     "Brave desktop entry source"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/niveth-brave"     "Brave launcher source"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/newtab/manifest.json"     "Brave New Tab manifest source"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/newtab/newtab.html"     "Brave New Tab page source"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/newtab/script.js"     "Brave New Tab script source"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/newtab/assets/light-wallpaper.png"     "Brave New Tab Light wallpaper"
+
+check_file     "$PROJECT_ROOT/desktop/defaults/brave/newtab/assets/dark-wallpaper.png"     "Brave New Tab Dark wallpaper"
+
+check_dir     "$PROJECT_ROOT/desktop/defaults/brave/profile"     "Brave default profile source"
+
 echo "============================================================"
 echo "AUDIT RESULT"
 echo "============================================================"
