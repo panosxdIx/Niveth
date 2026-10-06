@@ -37,65 +37,50 @@ if [ -d "$APP_SRC" ]; then
 fi
 
 ###############################################################################
-# 2. VIVALDI Niveth LIGHT / DARK
+# 2. BRAVE Niveth LIGHT / DARK + NEW TAB
 ###############################################################################
 
-VIV_SRC="$PROJECT_ROOT/desktop/defaults/vivaldi"
-VIV_DST="$ROOTFS/etc/niveth/vivaldi"
+BRAVE_SRC="$PROJECT_ROOT/desktop/defaults/brave"
+BRAVE_DST="$ROOTFS/etc/niveth/brave"
+BRAVE_SKEL="$ROOTFS/etc/skel"
 
-mkdir -p \
-    "$VIV_DST/Niveth-Light" \
-    "$VIV_DST/Niveth-Dark" \
-    "$ROOTFS/usr/local/bin" \
-    "$ROOTFS/usr/share/applications"
+mkdir -p     "$BRAVE_DST"     "$ROOTFS/usr/local/bin"     "$ROOTFS/usr/share/applications"     "$BRAVE_SKEL/.local/share/niveth/brave"     "$BRAVE_SKEL/.config/BraveSoftware/Brave-Browser"
 
-if [ -f "$VIV_SRC/Niveth-Light/settings.json" ]; then
-    install -m 0644 \
-        "$VIV_SRC/Niveth-Light/settings.json" \
-        "$VIV_DST/Niveth-Light/settings.json"
+# Niveth New Tab
+if [ -d "$BRAVE_SRC/newtab" ]; then
+    mkdir -p "$BRAVE_SKEL/.local/share/niveth/brave/newtab"
+
+    rsync -a --delete         "$BRAVE_SRC/newtab/"         "$BRAVE_SKEL/.local/share/niveth/brave/newtab/"
+
+    echo "[NIVETH FINAL FIXES] Brave Niveth New Tab installed"
+else
+    echo "[NIVETH FINAL FIXES] ERROR: Brave New Tab source missing"
+    exit 1
 fi
 
-if [ -f "$VIV_SRC/Niveth-Dark/settings.json" ]; then
-    install -m 0644 \
-        "$VIV_SRC/Niveth-Dark/settings.json" \
-        "$VIV_DST/Niveth-Dark/settings.json"
+# Niveth Brave profile
+if [ -d "$BRAVE_SRC/profile" ]; then
+    rsync -a --delete         "$BRAVE_SRC/profile/"         "$BRAVE_SKEL/.config/BraveSoftware/Brave-Browser/"
+
+    echo "[NIVETH FINAL FIXES] Brave profile installed"
+else
+    echo "[NIVETH FINAL FIXES] WARNING: Brave profile source missing"
 fi
 
-if [ -f "$VIV_SRC/niveth-vivaldi" ]; then
-    install -m 0755 \
-        "$VIV_SRC/niveth-vivaldi" \
-        "$ROOTFS/usr/local/bin/niveth-vivaldi"
+# Brave launcher
+if [ -f "$BRAVE_SRC/niveth-brave" ]; then
+    install -m 0755         "$BRAVE_SRC/niveth-brave"         "$ROOTFS/usr/local/bin/niveth-brave"
+else
+    echo "[NIVETH FINAL FIXES] ERROR: Brave launcher source missing"
+    exit 1
 fi
 
-if [ -f "$VIV_SRC/vivaldi-stable.desktop" ]; then
-    install -m 0644 \
-        "$VIV_SRC/vivaldi-stable.desktop" \
-        "$ROOTFS/usr/share/applications/vivaldi-stable.desktop"
-
-    python3 - "$ROOTFS/usr/share/applications/vivaldi-stable.desktop" <<'PY'
-from pathlib import Path
-import sys
-
-p = Path(sys.argv[1])
-s = p.read_text(encoding="utf-8")
-
-lines = s.splitlines()
-
-done = False
-out = []
-
-for line in lines:
-    if line.startswith("Exec=") and not done:
-        out.append("Exec=/usr/local/bin/niveth-vivaldi %U")
-        done = True
-    else:
-        out.append(line)
-
-if not done:
-    out.append("Exec=/usr/local/bin/niveth-vivaldi %U")
-
-p.write_text("\n".join(out) + "\n", encoding="utf-8")
-PY
+# Brave desktop entry
+if [ -f "$BRAVE_SRC/brave-browser.desktop" ]; then
+    install -m 0644         "$BRAVE_SRC/brave-browser.desktop"         "$ROOTFS/usr/share/applications/brave-browser.desktop"
+else
+    echo "[NIVETH FINAL FIXES] ERROR: Brave desktop entry source missing"
+    exit 1
 fi
 
 ###############################################################################
@@ -329,33 +314,27 @@ install -d -m 0755 "$ROOTFS/usr/src"
 echo "[NIVETH FINAL FIXES] /usr/src present for snapd"
 
 ###############################################################################
-# 6E. VIVALDI DEFAULT PREFERENCES
+# 6E. BRAVE DEFAULT CHECKS
 ###############################################################################
 
-echo "[NIVETH FINAL FIXES] installing Vivaldi default preferences"
+echo "[NIVETH FINAL FIXES] validating Brave assets"
 
-NIVETH_VIV_DEFAULT="$PROJECT_ROOT/desktop/defaults/vivaldi/default-preferences.json"
-
-if [ -f "$NIVETH_VIV_DEFAULT" ]; then
-    install -d -m 0755 "$ROOTFS/etc/niveth/vivaldi"
-    install -m 0644 \
-        "$NIVETH_VIV_DEFAULT" \
-        "$ROOTFS/etc/niveth/vivaldi/default-preferences.json"
-
-    echo "[NIVETH FINAL FIXES] Vivaldi default preferences installed"
-else
-    echo "[NIVETH FINAL FIXES] WARNING: Vivaldi default preferences source missing"
+if [ ! -x "$ROOTFS/usr/local/bin/niveth-brave" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave wrapper missing"
+    exit 1
 fi
 
-###############################################################################
-# 7. FINAL PERMISSIONS
-###############################################################################
+if [ ! -f "$ROOTFS/usr/share/applications/brave-browser.desktop" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave desktop entry missing"
+    exit 1
+fi
 
-chown -R root:root \
-    "$ROOTFS/etc/niveth" \
-    "$ROOTFS/usr/lib/niveth/apps/niveth-app-center" \
-    "$ROOTFS/usr/local/bin" \
-    2>/dev/null || true
+if [ ! -f "$ROOTFS/etc/skel/.local/share/niveth/brave/newtab/manifest.json" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave Niveth New Tab missing"
+    exit 1
+fi
+
+echo "[NIVETH FINAL FIXES] Brave assets PASS"
 
 ###############################################################################
 # 6G. CALAMARES SHOW QML
@@ -376,57 +355,6 @@ if [ -f "$NIVETH_CAL_DIR/show.qml" ]; then
     echo "[NIVETH FINAL FIXES] Calamares show.qml installed"
 else
     echo "[NIVETH FINAL FIXES] ERROR: source show.qml missing"
-    exit 1
-fi
-
-
-###############################################################################
-# 6H. VIVALDI DEFAULT PREFS SAFETY
-###############################################################################
-
-echo "[NIVETH FINAL FIXES] validating Vivaldi wrapper DEFAULT_PREFS"
-
-VIVALDI_WRAPPER="$ROOTFS/usr/local/bin/niveth-vivaldi"
-
-if [ -f "$VIVALDI_WRAPPER" ]; then
-
-    if ! grep -q '^DEFAULT_PREFS=' "$VIVALDI_WRAPPER"; then
-
-        python3 - "$VIVALDI_WRAPPER" <<'PYV'
-from pathlib import Path
-import re
-import sys
-
-p = Path(sys.argv[1])
-s = p.read_text()
-
-if 'DEFAULT_PREFS="$THEME_ROOT/default-preferences.json"' not in s:
-    pattern = r'(^DARK_JSON="\$THEME_ROOT/Niveth-Dark/settings\.json"$)'
-    s2, n = re.subn(
-        pattern,
-        r'\1\nDEFAULT_PREFS="$THEME_ROOT/default-preferences.json"',
-        s,
-        count=1,
-        flags=re.MULTILINE
-    )
-
-    if n != 1:
-        raise SystemExit("DARK_JSON marker missing")
-
-    p.write_text(s2)
-PYV
-
-    fi
-
-    if grep -q '^DEFAULT_PREFS=' "$VIVALDI_WRAPPER"; then
-        echo "[NIVETH FINAL FIXES] Vivaldi DEFAULT_PREFS PASS"
-    else
-        echo "[NIVETH FINAL FIXES] ERROR: Vivaldi DEFAULT_PREFS missing"
-        exit 1
-    fi
-
-else
-    echo "[NIVETH FINAL FIXES] ERROR: Vivaldi wrapper missing"
     exit 1
 fi
 
@@ -479,7 +407,7 @@ fi
 
 
 ###############################################################################
-# 6K. CALAMARES ALONGSIDE + VIVALDI NO-FIRST-RUN
+# 6K. CALAMARES ALONGSIDE + BRAVE NO-FIRST-RUN
 ###############################################################################
 
 echo "[NIVETH FINAL FIXES] configuring Calamares alongside installation"
@@ -529,43 +457,7 @@ else
     exit 1
 fi
 
-echo "[NIVETH FINAL FIXES] configuring Vivaldi first-run suppression"
-
-VIVALDI_WRAPPER="$ROOTFS/usr/local/bin/niveth-vivaldi"
-
-if [ -f "$VIVALDI_WRAPPER" ]; then
-
-    python3 - "$VIVALDI_WRAPPER" <<'PYV'
-from pathlib import Path
-import re
-import sys
-
-p = Path(sys.argv[1])
-s = p.read_text(encoding="utf-8")
-
-pattern = r'(^[ \t]*exec "\$REAL_VIVALDI")([ \t]+)(?!.*--no-first-run)(.*$)'
-
-s2, n = re.subn(
-    pattern,
-    r'\1 --no-first-run \3',
-    s,
-    count=1,
-    flags=re.MULTILINE,
-)
-
-if n == 1:
-    p.write_text(s2, encoding="utf-8")
-    print("[NIVETH FINAL FIXES] Vivaldi --no-first-run added")
-elif "--no-first-run" in s:
-    print("[NIVETH FINAL FIXES] Vivaldi --no-first-run already present")
-else:
-    print("[NIVETH FINAL FIXES] WARNING: Vivaldi launch line not found")
-PYV
-
-else
-    echo "[NIVETH FINAL FIXES] ERROR: Vivaldi wrapper missing"
-    exit 1
-fi
+echo "[NIVETH FINAL FIXES] Brave first-run suppression handled by Niveth launcher"
 
 ###############################################################################
 # 6F. FINAL RELEASE VALIDATION
@@ -578,13 +470,18 @@ if [ ! -d "$ROOTFS/usr/src" ]; then
     exit 1
 fi
 
-if [ ! -f "$ROOTFS/etc/niveth/vivaldi/default-preferences.json" ]; then
-    echo "[NIVETH FINAL FIXES] ERROR: Vivaldi default preferences missing"
+if [ ! -x "$ROOTFS/usr/local/bin/niveth-brave" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave wrapper missing"
     exit 1
 fi
 
-if [ ! -x "$ROOTFS/usr/local/bin/niveth-vivaldi" ]; then
-    echo "[NIVETH FINAL FIXES] ERROR: Vivaldi wrapper missing"
+if [ ! -f "$ROOTFS/usr/share/applications/brave-browser.desktop" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave desktop entry missing"
+    exit 1
+fi
+
+if [ ! -f "$ROOTFS/etc/skel/.local/share/niveth/brave/newtab/manifest.json" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: Brave Niveth New Tab missing"
     exit 1
 fi
 
@@ -629,5 +526,204 @@ if [ -f "$KITTY_TIMER" ]; then
         "$KITTY_WANTS/niveth-kitty-theme.timer"
     echo "[NIVETH FINAL FIXES] kitty timer symlink fixed"
 fi
+
+###############################################################################
+
+###############################################################################
+# 6N. REMOVE KDUMP FROM ISO
+###############################################################################
+
+echo "[NIVETH FINAL FIXES] removing kdump from ISO"
+
+# Do not run apt/dpkg maintainer scripts inside this snapshot.
+# The snapshot does not have /dev, /proc and /sys mounted at this stage.
+# Disable kdump and remove its generated payload instead.
+mkdir -p "$ROOTFS/etc/default"
+
+cat > "$ROOTFS/etc/default/kdump-tools" <<'EOF'
+USE_KDUMP=0
+KDUMP_KERNELVER=
+KDUMP_COREDIR="/var/crash"
+EOF
+
+rm -rf \
+    "$ROOTFS/var/lib/kdump" \
+    "$ROOTFS/etc/kdump"
+
+# Remove any generated kdump initramfs links/files if present.
+find "$ROOTFS/var/lib" -maxdepth 2 \
+    \( -name 'initrd.img-kdump*' -o -name 'vmlinuz-kdump*' \) \
+    -delete 2>/dev/null || true
+
+# Remove crashkernel boot parameters from GRUB configuration.
+find "$ROOTFS/etc/default" "$ROOTFS/etc/default/grub.d" \
+    -type f -print 2>/dev/null | while read -r f; do
+    sed -i -E 's/[[:space:]]*crashkernel=[^[:space:]"'\'']+//g' "$f"
+done
+
+if [ -d "$ROOTFS/var/lib/kdump" ]; then
+    echo "[NIVETH FINAL FIXES] ERROR: /var/lib/kdump still exists"
+    exit 1
+fi
+
+grep -q '^USE_KDUMP=0$' "$ROOTFS/etc/default/kdump-tools"
+
+echo "[NIVETH FINAL FIXES] kdump removed from ISO"
+echo "[NIVETH FINAL FIXES] kdump cleanup PASS"
+
+# 6M. BRAVE SYSTEMD LIGHT / DARK TIMERS
+###############################################################################
+
+echo "[NIVETH FINAL FIXES] installing Brave systemd theme timers"
+
+BRAVE_SYSTEMD_SRC="$PROJECT_ROOT/desktop/defaults/brave/systemd/user"
+BRAVE_SYSTEMD_DST="$ROOTFS/etc/skel/.config/systemd/user"
+BRAVE_TIMER_WANTS="$BRAVE_SYSTEMD_DST/timers.target.wants"
+
+mkdir -p \
+    "$BRAVE_SYSTEMD_DST" \
+    "$BRAVE_TIMER_WANTS"
+
+for unit in \
+    niveth-brave-light.service \
+    niveth-brave-light.timer \
+    niveth-brave-dark.service \
+    niveth-brave-dark.timer
+do
+    if [ ! -f "$BRAVE_SYSTEMD_SRC/$unit" ]; then
+        echo "[NIVETH FINAL FIXES] ERROR: Brave systemd unit missing: $unit"
+        exit 1
+    fi
+
+    install -m 0644 \
+        "$BRAVE_SYSTEMD_SRC/$unit" \
+        "$BRAVE_SYSTEMD_DST/$unit"
+
+    echo "[NIVETH FINAL FIXES] installed $unit"
+done
+
+# Timer activation links
+rm -f \
+    "$BRAVE_TIMER_WANTS/niveth-brave-light.timer" \
+    "$BRAVE_TIMER_WANTS/niveth-brave-dark.timer"
+
+ln -s \
+    "../niveth-brave-light.timer" \
+    "$BRAVE_TIMER_WANTS/niveth-brave-light.timer"
+
+ln -s \
+    "../niveth-brave-dark.timer" \
+    "$BRAVE_TIMER_WANTS/niveth-brave-dark.timer"
+
+echo "[NIVETH FINAL FIXES] Brave theme timers enabled in skel"
+
+echo "[NIVETH FINAL FIXES] validating Brave systemd files"
+
+for unit in \
+    niveth-brave-light.service \
+    niveth-brave-light.timer \
+    niveth-brave-dark.service \
+    niveth-brave-dark.timer
+do
+    if [[ ! -f "$ROOTFS/etc/skel/.config/systemd/user/$unit" ]]; then
+        echo "[NIVETH FINAL FIXES] ERROR: missing Brave systemd unit: $unit"
+        exit 1
+    fi
+done
+
+for timer in \
+    niveth-brave-light.timer \
+    niveth-brave-dark.timer
+do
+    if [[ ! -L "$ROOTFS/etc/skel/.config/systemd/user/timers.target.wants/$timer" ]]; then
+        echo "[NIVETH FINAL FIXES] ERROR: Brave timer not enabled: $timer"
+        exit 1
+    fi
+done
+
+echo "[NIVETH FINAL FIXES] Brave systemd validation PASS"
+
+###############################################################################
+# 7. Niveth LICENSE / COPYRIGHT / SOURCE COMPLIANCE
+###############################################################################
+
+echo "[NIVETH FINAL FIXES] installing Niveth licensing documents"
+
+NIVETH_DOC="$ROOTFS/usr/share/doc/niveth"
+
+install -d -m 0755 "$NIVETH_DOC"
+install -d -m 0755 "$NIVETH_DOC/LICENSES"
+
+install -m 0644 \
+    "$PROJECT_ROOT/LICENSE" \
+    "$NIVETH_DOC/LICENSE"
+
+install -m 0644 \
+    "$PROJECT_ROOT/COPYRIGHT.md" \
+    "$NIVETH_DOC/COPYRIGHT.md"
+
+install -m 0644 \
+    "$PROJECT_ROOT/BRANDING-NOTICE.md" \
+    "$NIVETH_DOC/BRANDING-NOTICE.md"
+
+install -m 0644 \
+    "$PROJECT_ROOT/THIRD-PARTY-NOTICES.md" \
+    "$NIVETH_DOC/THIRD-PARTY-NOTICES.md"
+
+install -m 0644 \
+    "$PROJECT_ROOT/SOURCE-CODE.md" \
+    "$NIVETH_DOC/SOURCE-CODE.md"
+
+install -m 0644 \
+    "$PROJECT_ROOT/LICENSES/GPL-3.0.txt" \
+    "$NIVETH_DOC/LICENSES/GPL-3.0.txt"
+
+if [[ -x "$PROJECT_ROOT/scripts/generate-license-inventory.sh" ]]; then
+    "$PROJECT_ROOT/scripts/generate-license-inventory.sh" \
+        "$ROOTFS"
+fi
+
+if [[ -x "$PROJECT_ROOT/scripts/create-niveth-source-archive.sh" ]]; then
+    "$PROJECT_ROOT/scripts/create-niveth-source-archive.sh" \
+        "$PROJECT_ROOT" \
+        "$ROOTFS"
+fi
+
+chown -R root:root "$NIVETH_DOC" "$ROOTFS/usr/share/src"
+
+echo "[NIVETH FINAL FIXES] licensing/source compliance files installed"
+
+# Remove stale corresponding-source archives from older Niveth versions.
+# Keep only the archive matching the current release version.
+find "$ROOTFS/usr/share/src"     -maxdepth 1     -type f     -name 'niveth-linux-*-corresponding-source.tar.gz'     ! -name 'niveth-linux-0.1.1-corresponding-source.tar.gz'     -delete 2>/dev/null || true
+
+echo "[NIVETH FINAL FIXES] validating licensing files"
+
+for legal_file in \
+    "$ROOTFS/usr/share/doc/niveth/LICENSE" \
+    "$ROOTFS/usr/share/doc/niveth/COPYRIGHT.md" \
+    "$ROOTFS/usr/share/doc/niveth/BRANDING-NOTICE.md" \
+    "$ROOTFS/usr/share/doc/niveth/THIRD-PARTY-NOTICES.md" \
+    "$ROOTFS/usr/share/doc/niveth/SOURCE-CODE.md" \
+    "$ROOTFS/usr/share/doc/niveth/LICENSES/GPL-3.0.txt" \
+    "$ROOTFS/usr/share/doc/niveth/license-inventory.tsv"
+do
+    if [[ ! -f "$legal_file" ]]; then
+        echo "[NIVETH FINAL FIXES] ERROR: missing legal file: $legal_file"
+        exit 1
+    fi
+done
+
+if ! find "$ROOTFS/usr/share/src" \
+    -maxdepth 1 \
+    -type f \
+    -name 'niveth-linux-*-corresponding-source.tar.gz' \
+    -print -quit 2>/dev/null | grep -q .
+then
+    echo "[NIVETH FINAL FIXES] ERROR: corresponding source archive missing"
+    exit 1
+fi
+
+echo "[NIVETH FINAL FIXES] licensing validation PASS"
 
 echo "[NIVETH FINAL FIXES] complete"

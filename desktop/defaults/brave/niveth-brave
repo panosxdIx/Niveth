@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REAL_BRAVE="/usr/bin/brave-browser"
+NEW_TAB="$HOME/.local/share/niveth/brave/newtab"
+CURRENT_THEME="$HOME/.local/share/niveth/brave/themes/current"
+
+if [[ ! -x "$REAL_BRAVE" ]]; then
+    echo "ERROR: Brave not found: $REAL_BRAVE" >&2
+    exit 1
+fi
+
+if [[ ! -f "$NEW_TAB/manifest.json" ]]; then
+    echo "ERROR: Niveth New Tab missing: $NEW_TAB" >&2
+    exit 1
+fi
+
+if [[ ! -f "$CURRENT_THEME/manifest.json" ]]; then
+    echo "ERROR: Niveth Brave theme missing: $CURRENT_THEME" >&2
+    exit 1
+fi
+
+exec "$REAL_BRAVE" \
+    --no-first-run \
+    --load-extension="$CURRENT_THEME,$NEW_TAB" \
+    "$@"

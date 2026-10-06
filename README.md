@@ -22,17 +22,11 @@ A customized GNOME desktop with Niveth visual identity and integrated desktop co
 
 Application discovery and installation through the Niveth app center.
 
-### Vivaldi Integration
+### Brave Integration
 
-#### Light Theme
+![Brave](docs/screenshots/brave.png)
 
-![Vivaldi Light](docs/screenshots/vivaldi-light.png)
-
-#### Dark Theme
-
-![Vivaldi Dark](docs/screenshots/vivaldi-dark.png)
-
-Integrated Vivaldi configuration with automatic light and dark theme handling.
+Integrated Brave configuration with Niveth customization and automatic light and dark theme handling.
 
 ### Niveth Wallpapers
 

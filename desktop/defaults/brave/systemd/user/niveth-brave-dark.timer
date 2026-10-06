@@ -1,0 +1,11 @@
+[Unit]
+Description=Niveth Brave Dark Theme Timer
+
+[Timer]
+OnCalendar=*-*-* 19:00:00
+AccuracySec=1min
+Persistent=true
+Unit=niveth-brave-dark.service
+
+[Install]
+WantedBy=timers.target

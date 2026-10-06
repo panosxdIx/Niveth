@@ -9,7 +9,7 @@ Start from the latest `main` branch and create a new branch for your work.
 
 ```text
 fix-calamares-storage
-update-vivaldi-theme
+update-brave-theme
 improve-app-center
 update-wallpapers
 ```

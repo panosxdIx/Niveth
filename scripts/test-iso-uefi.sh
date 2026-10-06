@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ISO="$PROJECT_ROOT/iso/Niveth-0.1-amd64.iso"
+ISO="$PROJECT_ROOT/iso/Niveth-0.1.1-amd64.iso"
 
 if [[ ! -f "$ISO" ]]; then
     echo "ERROR: ISO not found:"

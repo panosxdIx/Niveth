@@ -1,1 +1,1 @@
-['vivaldi-stable.desktop', 'kitty.desktop', 'com.niveth.Notes.desktop', 'org.kde.okular.desktop', 'com.niveth.AppCenter.desktop', 'org.niveth.Files.desktop']
+['brave-browser.desktop', 'kitty.desktop', 'com.niveth.Notes.desktop', 'org.gnome.Papers.desktop', 'com.niveth.AppCenter.desktop', 'org.niveth.Files.desktop']

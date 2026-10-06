@@ -1,0 +1,1314 @@
+{
+   "1pApplyChanges": {
+      "description": "English: Apply changes",
+      "message": "Rhoi'r newidiadau ar waith"
+   },
+   "1pEnableMyFiltersLabel": {
+      "description": "Label for the checkbox use to enable/disable 'My filters' list",
+      "message": "Galluogi fy hidlyddion addasedig"
+   },
+   "1pExport": {
+      "description": "Button in the 'My filters' pane",
+      "message": "Allforio…"
+   },
+   "1pExportFilename": {
+      "description": "English: my-ublock-static-filters_{{datetime}}.txt",
+      "message": "fy-hidlyddion-statig_{{datetime}}.txt"
+   },
+   "1pImport": {
+      "description": "Button in the 'My filters' pane",
+      "message": "Mewnforio ac atodi..."
+   },
+   "1pPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Fy hidlyddion"
+   },
+   "1pTrustMyFiltersLabel": {
+      "description": "Label for the checkbox use to trust the content of 'My filters' list",
+      "message": "Caniatáu hidlau arferol sy'n gofyn am ymddiriedaeth"
+   },
+   "1pTrustWarning": {
+      "description": "Warning against copy-pasting filters from random sources",
+      "message": "Peidiwch â ychwanegu hidlau o ffynonellau anniogel."
+   },
+   "3pApplyChanges": {
+      "description": "English: Apply changes",
+      "message": "Rhoi newidiadau ar waith"
+   },
+   "3pAutoUpdatePrompt1": {
+      "description": "A checkbox in the _3rd-party filters_ pane",
+      "message": "Diweddaru rhestrau hidl yn awtomatig"
+   },
+   "3pExternalListObsolete": {
+      "description": "used as a tooltip for the out-of-date icon beside a list",
+      "message": "Wedi dyddio."
+   },
+   "3pExternalListsHint": {
+      "description": "Short information about how to use the textarea to import external filter lists by URL",
+      "message": "Un URL fesul llinell. Caiff URLs annilys eu hanwybyddu'n dawel."
+   },
+   "3pGroupAds": {
+      "description": "Filter lists section name",
+      "message": "Hysbysebion"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Filter lists section name",
+      "message": "Pethau diflas"
+   },
+   "3pGroupCookies": {
+      "description": "Filter lists section name",
+      "message": "Hysbysiadau cwci"
+   },
+   "3pGroupCustom": {
+      "description": "Filter lists section name",
+      "message": "Addas"
+   },
+   "3pGroupDefault": {
+      "description": "Filter lists section name",
+      "message": "Mewnol"
+   },
+   "3pGroupMalware": {
+      "description": "Filter lists section name",
+      "message": "Diogelwch ac amddiffyn rhag maleiswedd"
+   },
+   "3pGroupMultipurpose": {
+      "description": "Filter lists section name",
+      "message": "Amlbwrpas"
+   },
+   "3pGroupPrivacy": {
+      "description": "Filter lists section name",
+      "message": "Preifatrwydd"
+   },
+   "3pGroupRegions": {
+      "description": "Filter lists section name",
+      "message": "Rhanbarthau, ieithoedd"
+   },
+   "3pGroupSocial": {
+      "description": "Filter lists section name",
+      "message": "Teclynnau cymdeithasol"
+   },
+   "3pIgnoreGenericCosmeticFilters": {
+      "description": "This will cause uBO to ignore all generic cosmetic filters.",
+      "message": "Anwybyddu hidlyddion arwynebol cyffredinol"
+   },
+   "3pIgnoreGenericCosmeticFiltersInfo": {
+      "description": "Describes the purpose of the 'Ignore generic cosmetic filters' feature.",
+      "message": "Hidlyddion arwynebol cyffredinol yw'r hidlyddion arwynebol hynny sy'n gweithredu ar bob gwefan. Mae galluogi'r dewisiad hwn yn dileu'r pwysau a roddir ar y cof a'r CPU gan wefannau o ganlyniad i drin hidlyddion arwynebol cyffredinol.\n\nArgymhellir galluogi'r dewisiad hwn ar ddyfeisiau llai pwerus."
+   },
+   "3pImport": {
+      "description": "The label for the checkbox used to import external filter lists",
+      "message": "Mewnforio…"
+   },
+   "3pLastUpdate": {
+      "description": "used as a tooltip for the clock icon beside a list",
+      "message": "Diweddariad diwethaf: {{ago}}.\nCliciwch i orfodi diweddariad."
+   },
+   "3pListsOfBlockedHostsHeader": {
+      "description": "English: Lists of blocked hosts",
+      "message": "Lists of blocked hosts"
+   },
+   "3pListsOfBlockedHostsPerListStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "Defnyddir {{used}} o {{total}}"
+   },
+   "3pListsOfBlockedHostsPrompt": {
+      "description": "Appears at the top of the _3rd-party filters_ pane",
+      "message": "{{netFilterCount}} hidl rhwydwaith ＋ {{cosmeticFilterCount}} hidl cosmetig o:"
+   },
+   "3pNetworkError": {
+      "description": "used as a tooltip for error icon beside a list",
+      "message": "Ataliodd gwall rhwydwaith yr adnodd rhag cael ei ddiweddaru."
+   },
+   "3pPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Rhestri hidlo"
+   },
+   "3pParseAllABPHideFiltersInfo": {
+      "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature.",
+      "message": "Mae hidlau cosmetig yn gwasanaethu i guddio elfennau mewn tudalen we sy'n cael eu hystyried yn niwsans gweledol, ac na ellir eu blocio gan beiriannau hidlo sy'n seiliedig ar geisiadau rhwydwaith."
+   },
+   "3pParseAllABPHideFiltersPrompt1": {
+      "description": "English: Parse and enforce Adblock+ element hiding filters.",
+      "message": "Dadansoddi a gorfodi hidlau cosmetig"
+   },
+   "3pPurgeAll": {
+      "description": "A button in the in the _3rd-party filters_ pane",
+      "message": "Clirio pob storfa"
+   },
+   "3pSuspendUntilListsAreLoaded": {
+      "description": "A checkbox in the 'Filter lists' pane",
+      "message": "Atal gweithgaredd rhwydwaith nes bod pob rhestr hidl wedi'u llwytho"
+   },
+   "3pUpdateNow": {
+      "description": "A button in the in the _3rd-party filters_ pane",
+      "message": "Diweddaru nawr"
+   },
+   "3pUpdating": {
+      "description": "used as a tooltip for the spinner icon beside a list",
+      "message": "Wrthi'n diweddaru…"
+   },
+   "3pViewContent": {
+      "description": "used as a tooltip for eye icon beside a list",
+      "message": "gweld cynnwys"
+   },
+   "GB": {
+      "description": "short for 'gigabytes'",
+      "message": "GB"
+   },
+   "KB": {
+      "description": "short for 'kilobytes'",
+      "message": "KB"
+   },
+   "MB": {
+      "description": "short for 'megabytes'",
+      "message": "MB"
+   },
+   "aboutBackupDataButton": {
+      "description": "Text for button to create a backup of all settings",
+      "message": "Copïo wrth gefn i ffeil..."
+   },
+   "aboutBackupFilename": {
+      "description": "English: my-ublock-backup_{{datetime}}.txt",
+      "message": "copi-wrth-gefn-ublock_{{datetime}}.txt"
+   },
+   "aboutCDNs": {
+      "description": "Shown in the About pane",
+      "message": "Mae rhestrau hidl uBO eu hunain yn cael eu cynnal am ddim ar y \u003Ca href=\"https://wikipedia.org/wiki/Content_delivery_network\">CDNs\u003C/a> canlynol:"
+   },
+   "aboutCDNsInfo": {
+      "description": "Shown in the About pane",
+      "message": "Defnyddir CDN a ddewiswyd ar hap pan fydd angen diweddaru rhestr hidl."
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Cofnod newidiadau"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Cod ffynhonnell (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Cyfranwyr"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Gofynion allanol (cydnaws â GPLv3):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Rhestri hidlo"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Ynghylch"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Polisi preifatrwydd"
+   },
+   "aboutResetDataButton": {
+      "description": "English: Reset to default settings...",
+      "message": "Ailosod y gosodiadau i'r rhagosodiad..."
+   },
+   "aboutResetDataConfirm": {
+      "description": "Message asking user to confirm reset",
+      "message": "Caiff eich holl osodiadau eu tynnu, a bydd uBlock₀ yn ailgychwyn.\n\nAilgychwyn uBlock₀ i osodiadau ffatri?"
+   },
+   "aboutRestoreDataButton": {
+      "description": "English: Restore from file...",
+      "message": "Adfer o ffeil..."
+   },
+   "aboutRestoreDataConfirm": {
+      "description": "Message asking user to confirm restore",
+      "message": "Bydd eich holl osodiadau'n cael eu trosysgrifo gan ddefnyddio data a gopïwyd wrth gefn ar {{time}}, a bydd uBlock₀ yn ailgychwyn.\n\nA ydych am drosysgrifo pob gosodiad presennol gan ddefnyddio data wrth gefn?"
+   },
+   "aboutRestoreDataError": {
+      "description": "Message to display when an error occurred during restore",
+      "message": "Ni ellid darllen y data neu mae'n annilys"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Cod ffynhonnell"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Cyfieithiadau"
+   },
+   "advancedSettingsPageName": {
+      "description": "Title for the advanced settings page",
+      "message": "Gosodiadau uwch"
+   },
+   "advancedSettingsWarning": {
+      "description": "A warning to users at the top of 'Advanced settings' page",
+      "message": "Rhybudd! Newidiwch y gosodiadau uwch hyn ar eich menter eich hun."
+   },
+   "assetViewerPageName": {
+      "description": "Title for the asset viewer page",
+      "message": "uBlock₀ — Gweld ased"
+   },
+   "clickToLoad": {
+      "description": "Message used in frame placeholders",
+      "message": "Clicio i lwytho"
+   },
+   "cloudDeviceNamePrompt": {
+      "description": "used as a prompt for the user to provide a custom device name",
+      "message": "Enw'r ddyfais hon:"
+   },
+   "cloudNoData": {
+      "description": "",
+      "message": "…\n…"
+   },
+   "cloudPull": {
+      "description": "tooltip",
+      "message": "Mewnforio o storfa cwmwl"
+   },
+   "cloudPullAndMerge": {
+      "description": "tooltip",
+      "message": "Mewnforio o storfa cwmwl a chyfuno â gosodiadau cyfredol"
+   },
+   "cloudPush": {
+      "description": "tooltip",
+      "message": "Allforio i storfa cwmwl"
+   },
+   "contextMenuBlockElementInFrame": {
+      "description": "An entry in the browser's contextual menu",
+      "message": "Blocio elfen mewn ffrâm…"
+   },
+   "contextMenuSubscribeToList": {
+      "description": "An entry in the browser's contextual menu",
+      "message": "Tanysgrifio i restr hidl…"
+   },
+   "contextMenuTemporarilyAllowLargeMediaElements": {
+      "description": "A context menu entry, present when large media elements have been blocked on the current site",
+      "message": "Caniatáu elfennau cyfryngau mawr dros dro"
+   },
+   "contextMenuViewSource": {
+      "description": "A context menu entry, to view the source code of the target resource",
+      "message": "Gweld y cod ffynhonnell…"
+   },
+   "dashboardName": {
+      "description": "English: uBlock₀ — Dashboard",
+      "message": "uBlock₀ — Dangosfwrdd"
+   },
+   "dashboardUnsavedWarning": {
+      "description": "A warning in the dashboard when navigating away from unsaved changes",
+      "message": "Rhybudd: mae gennych newidiadau heb eu cadw!"
+   },
+   "dashboardUnsavedWarningIgnore": {
+      "description": "Label for button to ignore unsaved changes",
+      "message": "Anwybyddu"
+   },
+   "dashboardUnsavedWarningStay": {
+      "description": "Label for button to prevent navigating away from unsaved changes",
+      "message": "Aros yma"
+   },
+   "docblockedBack": {
+      "description": "English: Go back",
+      "message": "Yn ôl"
+   },
+   "docblockedClose": {
+      "description": "English: Close this window",
+      "message": "Cau'r ffenestr hon"
+   },
+   "docblockedDisable": {
+      "description": "Button text to navigate to the blocked page",
+      "message": "Parhau"
+   },
+   "docblockedDisablePermanent": {
+      "description": "English: Permanently",
+      "message": "Yn barhaol"
+   },
+   "docblockedDisableTemporary": {
+      "description": "English: Temporarily",
+      "message": "Dros dro"
+   },
+   "docblockedDontWarn": {
+      "description": "Label for checkbox in document-blocked page",
+      "message": "Peidio â'm rhybuddio eto am y wefan hon"
+   },
+   "docblockedFoundIn": {
+      "description": "English: List of filter list names follows",
+      "message": "Mae'r hidl wedi'i ddarganfod yn:"
+   },
+   "docblockedNoParamsPrompt": {
+      "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png",
+      "message": "heb baramedrau"
+   },
+   "docblockedProceed": {
+      "description": "English: Disable strict blocking for {{hostname}} ...",
+      "message": "Analluogi blocio llym ar gyfer {{hostname}}"
+   },
+   "docblockedPrompt1": {
+      "description": "Used in the strict-blocking page",
+      "message": "Mae uBlock Origin wedi atal y dudalen ganlynol rhag llwytho:"
+   },
+   "docblockedPrompt2": {
+      "description": "Used in the strict-blocking page",
+      "message": "Digwyddodd hyn oherwydd y hidlydd canlynol:"
+   },
+   "docblockedReasonDisreputable": {
+      "description": "An actual reason why a page was blocked",
+      "message": "Amheus"
+   },
+   "docblockedReasonLabel": {
+      "description": "The label which prepend the actual reason why a page was blocked",
+      "message": "Rheswm:"
+   },
+   "docblockedReasonMalicious": {
+      "description": "An actual reason why a page was blocked",
+      "message": "Maleisus"
+   },
+   "docblockedReasonTracker": {
+      "description": "An actual reason why a page was blocked",
+      "message": "Traciwr"
+   },
+   "docblockedRedirectPrompt": {
+      "description": "Text warning about an incoming redirect",
+      "message": "Mae'r dudalen rwystredig am ailgyfeirio i safle arall. Os dewiswch fwrw ymlaen, byddwch yn llywio'n uniongyrchol i: {{url}}"
+   },
+   "docblockedTitle": {
+      "description": "Used as a title for the document-blocked page",
+      "message": "Tudalen wedi'i blocio"
+   },
+   "dummy": {
+      "description": "so we dont need to deal with comma for last entry",
+      "message": "This entry must be the last one"
+   },
+   "elapsedManyDaysAgo": {
+      "description": "English: {{value}} days ago",
+      "message": "{{value}} o ddiwrnodau yn ôl"
+   },
+   "elapsedManyHoursAgo": {
+      "description": "English: {{value}} hours ago",
+      "message": "{{value}} awr yn ôl"
+   },
+   "elapsedManyMinutesAgo": {
+      "description": "English: {{value}} minutes ago",
+      "message": "{{value}} o funudau yn ôl"
+   },
+   "elapsedOneDayAgo": {
+      "description": "English: a day ago",
+      "message": "ddiwrnod yn ôl"
+   },
+   "elapsedOneHourAgo": {
+      "description": "English: an hour ago",
+      "message": "awr yn ôl"
+   },
+   "elapsedOneMinuteAgo": {
+      "description": "English: a minute ago",
+      "message": "funud yn ôl"
+   },
+   "errorCantConnectTo": {
+      "description": "English: Network error: {{msg}}",
+      "message": "Gwall rhwydwaith: {{msg}}"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "uBlock Origin"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "O'r diwedd, rhwystrydd effeithlon sy'n well ar y CPU a'r cof."
+   },
+   "fennecMenuItemBlockingOff": {
+      "description": "Firefox-specific: appears as 'uBlock₀ (off)'",
+      "message": "na"
+   },
+   "genericApplyChanges": {
+      "description": "for generic 'Apply changes' buttons",
+      "message": "Rhoi newidiadau ar waith"
+   },
+   "genericBytes": {
+      "description": "",
+      "message": "beit"
+   },
+   "genericCopyToClipboard": {
+      "description": "Label for buttons used to copy something to the clipboard",
+      "message": "Copïo i'r clipfwrdd"
+   },
+   "genericMergeViewScrollLock": {
+      "description": "Tooltip for the button used to lock scrolling between the views in the 'My rules' pane",
+      "message": "Troci sgrolio cloi"
+   },
+   "genericRevert": {
+      "description": "for generic 'Revert' buttons",
+      "message": "Gwrthdroi"
+   },
+   "genericSelectAll": {
+      "description": "Label for buttons used to select all text in editor",
+      "message": "Dewis y cyfan"
+   },
+   "genericSubmit": {
+      "description": "for generic 'Submit' buttons",
+      "message": "Cyflwyno"
+   },
+   "linterMainReport": {
+      "description": "Summary of number of errors as reported by the linter ",
+      "message": "Gwallau: {{count}}"
+   },
+   "logAll": {
+      "description": "Appears in the logger's tab selector",
+      "message": "Y cyfan"
+   },
+   "logBehindTheScene": {
+      "description": "Pretty name for behind-the-scene network requests",
+      "message": "Di-dab"
+   },
+   "logFilterPrompt": {
+      "description": "Placeholder string for logger output filtering input field",
+      "message": "hidlo cynnwys yr hidlydd"
+   },
+   "logRequestsHeaderDomain": {
+      "description": "English: Domain",
+      "message": "Parth"
+   },
+   "logRequestsHeaderFilter": {
+      "description": "English: Filter",
+      "message": "Hidlydd"
+   },
+   "logRequestsHeaderType": {
+      "description": "English: Type",
+      "message": "Math"
+   },
+   "logRequestsHeaderURL": {
+      "description": "English: URL",
+      "message": "URL"
+   },
+   "loggerClearTip": {
+      "description": "Tooltip for the eraser in the logger page; used to blank the content of the logger",
+      "message": "Clirio'r logiwr"
+   },
+   "loggerCurrentTab": {
+      "description": "Appears in the logger's tab selector",
+      "message": "Y tab presennol"
+   },
+   "loggerDomInspectorTip": {
+      "description": "Tooltip for the DOM inspector button in the logger page",
+      "message": "Troci archwiliwr DOM"
+   },
+   "loggerEntryDetailsContext": {
+      "description": "Label to identify a context field (typically a hostname)",
+      "message": "Cyd-destun"
+   },
+   "loggerEntryDetailsFilter": {
+      "description": "Label to identify a filter field",
+      "message": "Hidlydd"
+   },
+   "loggerEntryDetailsFilterList": {
+      "description": "Label to identify a filter list field",
+      "message": "Rhestr hidl"
+   },
+   "loggerEntryDetailsHeader": {
+      "description": "Small header to identify the 'Details' pane for a specific logger entry",
+      "message": "Manylion"
+   },
+   "loggerEntryDetailsPartyness": {
+      "description": "Label to identify a field providing partyness information",
+      "message": "Lefel parti"
+   },
+   "loggerEntryDetailsRootContext": {
+      "description": "Label to identify a root context field (typically a hostname)",
+      "message": "Cyd-destun gwraidd"
+   },
+   "loggerEntryDetailsRule": {
+      "description": "Label to identify a rule field",
+      "message": "Rheol"
+   },
+   "loggerEntryDetailsType": {
+      "description": "Label to identify the type of an entry",
+      "message": "Math"
+   },
+   "loggerEntryDetailsURL": {
+      "description": "Label to identify the URL of an entry",
+      "message": "URL"
+   },
+   "loggerExportEncodeMarkdown": {
+      "description": "Label for radio-button to pick export text format",
+      "message": "Markdown"
+   },
+   "loggerExportEncodePlain": {
+      "description": "Label for radio-button to pick export text format",
+      "message": "Plaen"
+   },
+   "loggerExportFormatList": {
+      "description": "Label for radio-button to pick export format",
+      "message": "Rhestr"
+   },
+   "loggerExportFormatTable": {
+      "description": "Label for radio-button to pick export format",
+      "message": "Tabl"
+   },
+   "loggerInfoTip": {
+      "description": "Tooltip for the top-right info label in the logger page",
+      "message": "Wici uBlock Origin: Y logiwr"
+   },
+   "loggerPauseTip": {
+      "description": "Tooltip for the pause button in the logger page",
+      "message": "Oedi'r logiwr (diystyru data sy'n cyrraedd)"
+   },
+   "loggerPopupPanelTip": {
+      "description": "Tooltip for the popup panel button in the logger page",
+      "message": "Troci panel naid"
+   },
+   "loggerReloadTip": {
+      "description": "Tooltip for the reload button in the logger page",
+      "message": "Ail-lwytho cynnwys y tab"
+   },
+   "loggerRowFiltererBuiltin1p": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "parti 1af"
+   },
+   "loggerRowFiltererBuiltin3p": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "3ydd-parti"
+   },
+   "loggerRowFiltererBuiltinAllowed": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "wedi caniatáu"
+   },
+   "loggerRowFiltererBuiltinBlocked": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "wedi rhwystro"
+   },
+   "loggerRowFiltererBuiltinEventful": {
+      "description": "A keyword in the built-in row filtering expression: all items corresponding to uBO doing something (blocked, allowed, redirected, etc.)",
+      "message": "eventful"
+   },
+   "loggerRowFiltererBuiltinModified": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "wedi addasu"
+   },
+   "loggerRowFiltererBuiltinNot": {
+      "description": "A keyword in the built-in row filtering expression",
+      "message": "Nid"
+   },
+   "loggerRowFiltererBuiltinTip": {
+      "description": "Tooltip for the button to bring up logger output filtering options",
+      "message": "Dewisiadau hidlo'r logiwr"
+   },
+   "loggerRowFiltererButtonTip": {
+      "description": "Tooltip for the row filterer button in the logger page",
+      "message": "Toglo hidlo'r logiwr"
+   },
+   "loggerSettingDiscardPrompt": {
+      "description": "Logger setting: A sentence to describe the purpose of the settings below",
+      "message": "Bydd cofnodion logiwr nad ydynt yn cyflawni'r tair amod isod yn cael eu taflu'n awtomatig:"
+   },
+   "loggerSettingHideColumnContext": {
+      "description": "A label for the context column",
+      "message": "{{input}} Cyd-destun"
+   },
+   "loggerSettingHideColumnFilter": {
+      "description": "A label for the filter or rule column",
+      "message": "{{input}} Hidlydd/rheol"
+   },
+   "loggerSettingHideColumnPartyness": {
+      "description": "A label for the partyness column",
+      "message": "{{input}} Parti-"
+   },
+   "loggerSettingHideColumnTime": {
+      "description": "A label for the time column",
+      "message": "{{input}} Amser"
+   },
+   "loggerSettingHideColumnsPrompt": {
+      "description": "Logger settings: a sentence to describe the purpose of the checkboxes below",
+      "message": "Cuddio colofnau:"
+   },
+   "loggerSettingPerEntryLineCount": {
+      "description": "A logger setting",
+      "message": "Defnyddio {{input}} llinell fesul cofnod yn y modd lledaenu fertigol"
+   },
+   "loggerSettingPerEntryMaxAge": {
+      "description": "A logger setting",
+      "message": "Cadw cofnodion o'r {{input}} munud diwethaf"
+   },
+   "loggerSettingPerTabMaxEntries": {
+      "description": "A logger setting",
+      "message": "Cadw uchafswm o {{input}} cofnodion fesul tab"
+   },
+   "loggerSettingPerTabMaxLoads": {
+      "description": "A logger setting",
+      "message": "Cadw uchafswm o {{input}} llwythiadau tudalen fesul tab"
+   },
+   "loggerStaticFilteringFinderSentence1": {
+      "description": "Below this sentence, the filter list(s) in which the filter was found",
+      "message": "Hidl sefydlog \u003Ccode>{{filter}}\u003C/code> a geir yn:"
+   },
+   "loggerStaticFilteringFinderSentence2": {
+      "description": "Message to show when a filter cannot be found in any filter lists",
+      "message": "Ni ellid dod o hyd i hidl sefydlog yn unrhyw un o'r rhestrau hidl sydd wedi'u galluogi ar hyn o bryd"
+   },
+   "loggerStaticFilteringHeader": {
+      "description": "Small header to identify the static filtering section",
+      "message": "Hidlydd statig"
+   },
+   "loggerStaticFilteringSentence": {
+      "description": "Used in the static filtering wizard",
+      "message": "{{action}} ceisiadau rhwydwaith o {{type}} {{br}}y mae ei gyfeiriad URL yn cyfateb i {{url}} {{br}}ac sy'n tarddu o {{origin}},{{br}}{{importance}} mae hidl eithriad sy'n cyfateb."
+   },
+   "loggerStaticFilteringSentencePartAllow": {
+      "description": "Used in the static filtering wizard",
+      "message": "Caniatáu"
+   },
+   "loggerStaticFilteringSentencePartAnyOrigin": {
+      "description": "Used in the static filtering wizard",
+      "message": "o unrhyw le"
+   },
+   "loggerStaticFilteringSentencePartAnyType": {
+      "description": "Used in the static filtering wizard",
+      "message": "unrhyw fath"
+   },
+   "loggerStaticFilteringSentencePartBlock": {
+      "description": "Used in the static filtering wizard",
+      "message": "Rhwystro"
+   },
+   "loggerStaticFilteringSentencePartImportant": {
+      "description": "Used in the static filtering wizard",
+      "message": "hyd yn oed os"
+   },
+   "loggerStaticFilteringSentencePartNotImportant": {
+      "description": "Used in the static filtering wizard",
+      "message": "ac eithrio pan"
+   },
+   "loggerStaticFilteringSentencePartOrigin": {
+      "description": "Used in the static filtering wizard",
+      "message": "o \"{{origin}}\""
+   },
+   "loggerStaticFilteringSentencePartType": {
+      "description": "Used in the static filtering wizard",
+      "message": "math \"{{type}}\""
+   },
+   "loggerURLFilteringContextLabel": {
+      "description": "Label for the context selector",
+      "message": "Cyd-destun:"
+   },
+   "loggerURLFilteringHeader": {
+      "description": "Small header to identify the dynamic URL filtering section",
+      "message": "Rheol URL"
+   },
+   "loggerURLFilteringTypeLabel": {
+      "description": "Label for the type selector",
+      "message": "Math:"
+   },
+   "loggerUnpauseTip": {
+      "description": "Tooltip for the play button in the logger page",
+      "message": "Dad-oedi'r logiwr"
+   },
+   "pickerContextMenuEntry": {
+      "description": "An entry in the browser's contextual menu",
+      "message": "Blocio elfen…"
+   },
+   "pickerCosmeticFilters": {
+      "description": "English: Cosmetic filters",
+      "message": "Hidlyddion arwynebol"
+   },
+   "pickerCosmeticFiltersHint": {
+      "description": "English: Click, Ctrl-click",
+      "message": "Cliciwch, Ctrl-clic"
+   },
+   "pickerCreate": {
+      "description": "English: Create",
+      "message": "Creu"
+   },
+   "pickerNetFilters": {
+      "description": "English: header for a type of filter in the element picker dialog",
+      "message": "Hidlau rhwydwaith"
+   },
+   "pickerPick": {
+      "description": "English: Pick",
+      "message": "Dewis"
+   },
+   "pickerPreview": {
+      "description": "Element picker preview mode: will cause the elements matching the current filter to be removed from the page",
+      "message": "Rhagolwg"
+   },
+   "pickerQuit": {
+      "description": "English: Quit",
+      "message": "Gadael"
+   },
+   "popup1pScriptRulePrompt": {
+      "description": "",
+      "message": "sgriptiau parti 1af"
+   },
+   "popup3pAnyRulePrompt": {
+      "description": "",
+      "message": "3ydd-parti"
+   },
+   "popup3pFrameFilter": {
+      "description": "Appears as an option to filter out firewall rows",
+      "message": "ffram"
+   },
+   "popup3pFrameRulePrompt": {
+      "description": "",
+      "message": "fframiau trydydd parti"
+   },
+   "popup3pPassiveRulePrompt": {
+      "description": "",
+      "message": "CSS/delweddau 3ydd-parti"
+   },
+   "popup3pScriptFilter": {
+      "description": "Appears as an option to filter out firewall rows",
+      "message": "sgript"
+   },
+   "popup3pScriptRulePrompt": {
+      "description": "",
+      "message": "sgriptiau trydydd parti"
+   },
+   "popupAnyRulePrompt": {
+      "description": "",
+      "message": "popeth"
+   },
+   "popupBlockedOnThisPagePrompt": {
+      "description": "English: on this page",
+      "message": "ar y dudalen hon"
+   },
+   "popupBlockedOnThisPage_v2": {
+      "description": "For the new mobile-friendly popup design",
+      "message": "Wedi rhwystro ar y dudalen hon"
+   },
+   "popupBlockedRequestPrompt": {
+      "description": "English: requests blocked",
+      "message": "ceisiadau wedi'u bloc"
+   },
+   "popupBlockedSinceInstallPrompt": {
+      "description": "English: since install",
+      "message": "ers gosod"
+   },
+   "popupBlockedSinceInstall_v2": {
+      "description": "For the new mobile-friendly popup design",
+      "message": "Wedi rhwystro ers gosod"
+   },
+   "popupBlockedStats": {
+      "description": "Example: 15 (13%)",
+      "message": "{{count}} ({{percent}}%)"
+   },
+   "popupDomainsConnected_v2": {
+      "description": "For the new mobile-friendly popup design",
+      "message": "Parthau wedi'u cysylltu"
+   },
+   "popupHitDomainCount": {
+      "description": "appears in popup",
+      "message": "{{count}} o {{total}}"
+   },
+   "popupHitDomainCountPrompt": {
+      "description": "appears in popup",
+      "message": "parthau cysylltiedig"
+   },
+   "popupImageRulePrompt": {
+      "description": "",
+      "message": "delweddau"
+   },
+   "popupInlineScriptRulePrompt": {
+      "description": "",
+      "message": "sgriptiau mewnol"
+   },
+   "popupLessButton_v2": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Llai"
+   },
+   "popupMoreButton_v2": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Rhagor"
+   },
+   "popupNoCosmeticFiltering_v2": {
+      "description": "Caption for the no-cosmetic-filtering per-site switch",
+      "message": "Hidlo arwynebol"
+   },
+   "popupNoLargeMedia_v2": {
+      "description": "Caption for the no-large-media per-site switch",
+      "message": "Elfennau cyfryngau mawr"
+   },
+   "popupNoPopups_v2": {
+      "description": "Caption for the no-popups per-site switch",
+      "message": "Ffenestri naid"
+   },
+   "popupNoRemoteFonts_v2": {
+      "description": "Caption for the no-remote-fonts per-site switch",
+      "message": "Ffontiau pell"
+   },
+   "popupNoScripting_v2": {
+      "description": "Caption for the no-scripting per-site switch",
+      "message": "JavaScript"
+   },
+   "popupOr": {
+      "description": "English: or",
+      "message": "neu"
+   },
+   "popupPowerSwitchInfo": {
+      "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page.",
+      "message": "Clic: analluogi/galluogi uBlock₀ ar y wefan hon.\n\nCtrl+clic: analluogi uBlock₀ ar y dudalen hon yn unig."
+   },
+   "popupPowerSwitchInfo1": {
+      "description": "Message to be read by screen readers",
+      "message": "Cliciwch i analluogi uBlock₀ ar y wefan hon.\n\nDefnyddiwch ctrl+clic i analluogi uBlock₀ ar y dudalen hon yn unig."
+   },
+   "popupPowerSwitchInfo2": {
+      "description": "Message to be read by screen readers",
+      "message": "Cliciwch i alluogi uBlock₀ ar y wefan hon."
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Agor y dashfwrdd"
+   },
+   "popupTipGlobalRules": {
+      "description": "Tooltip when hovering the top-most cell of the global-rules column.",
+      "message": "Rheolau byd-eang: mae'r golofn hon ar gyfer rheolau sy'n berthnasol i bob safle."
+   },
+   "popupTipLocalRules": {
+      "description": "Tooltip when hovering the top-most cell of the local-rules column.",
+      "message": "Rheolau lleol: mae'r golofn hon ar gyfer rheolau sy'n berthnasol i'r safle presennol yn unig."
+   },
+   "popupTipLog": {
+      "description": "Tooltip used for the logger icon in the panel",
+      "message": "Agor y logiwr"
+   },
+   "popupTipNoCosmeticFiltering": {
+      "description": "Tooltip for the no-cosmetic-filtering per-site switch",
+      "message": "Toglo hidlo arwynebol ar gyfer y wefan hon"
+   },
+   "popupTipNoCosmeticFiltering1": {
+      "description": "Tooltip for the no-cosmetic-filtering per-site switch",
+      "message": "Cliciwch i analluogi hidlo arwynebol ar y wefan hon"
+   },
+   "popupTipNoCosmeticFiltering2": {
+      "description": "Tooltip for the no-cosmetic-filtering per-site switch",
+      "message": "Cliciwch i alluogi hidlo arwynebol ar y wefan hon"
+   },
+   "popupTipNoLargeMedia": {
+      "description": "Tooltip for the no-large-media per-site switch",
+      "message": "Troci blocio elfennau cyfryngau mawr ar gyfer y safle hwn"
+   },
+   "popupTipNoLargeMedia1": {
+      "description": "Tooltip for the no-large-media per-site switch",
+      "message": "Cliciwch i rwystro elfennau cyfryngau mawr ar y safle hwn"
+   },
+   "popupTipNoLargeMedia2": {
+      "description": "Tooltip for the no-large-media per-site switch",
+      "message": "Cliciwch i beidio â blocio elfennau cyfryngau mawr ar y safle hwn mwyach"
+   },
+   "popupTipNoPopups": {
+      "description": "Tooltip for the no-popups per-site switch",
+      "message": "Troci blocio pob pob-wybrennau ar gyfer y safle hwn"
+   },
+   "popupTipNoPopups1": {
+      "description": "Tooltip for the no-popups per-site switch",
+      "message": "Cliciwch i rwystro pob pob-wybren ar y safle hwn"
+   },
+   "popupTipNoPopups2": {
+      "description": "Tooltip for the no-popups per-site switch",
+      "message": "Cliciwch i beidio â blocio pob pob-wybren ar y safle hwn mwyach"
+   },
+   "popupTipNoRemoteFonts": {
+      "description": "Tooltip for the no-remote-fonts per-site switch",
+      "message": "Troci blocio ffontiau o bell ar gyfer y safle hwn"
+   },
+   "popupTipNoRemoteFonts1": {
+      "description": "Tooltip for the no-remote-fonts per-site switch",
+      "message": "Cliciwch i rwystro ffontiau pell ar y wefan hon"
+   },
+   "popupTipNoRemoteFonts2": {
+      "description": "Tooltip for the no-remote-fonts per-site switch",
+      "message": "Cliciwch i ganiatáu ffontiau pell ar y wefan hon"
+   },
+   "popupTipNoScripting1": {
+      "description": "Tooltip for the no-scripting per-site switch",
+      "message": "Cliciwch i analluogi JavaScript ar y wefan hon"
+   },
+   "popupTipNoScripting2": {
+      "description": "Tooltip for the no-scripting per-site switch",
+      "message": "Cliciwch i alluogi JavaScript ar y wefan hon"
+   },
+   "popupTipPicker": {
+      "description": "English: Enter element picker mode",
+      "message": "Galluogi modd dewis elfen"
+   },
+   "popupTipReport": {
+      "description": "Tooltip used for the 'chat' icon in the panel",
+      "message": "Adrodd nam ar y wefan hon"
+   },
+   "popupTipRevertRules": {
+      "description": "Tooltip when hovering over the eraser in the dynamic filtering pane.",
+      "message": "Cliciwch i ddychwelyd eich newidiadau."
+   },
+   "popupTipSaveRules": {
+      "description": "Tooltip when hovering over the padlock in the dynamic filtering pane.",
+      "message": "Cliciwch i wneud eich newidiadau'n barhaol."
+   },
+   "popupTipZapper": {
+      "description": "Tooltip for the element-zapper icon in the popup panel",
+      "message": "Galluogi modd saethu elfen"
+   },
+   "popupVersion": {
+      "description": "Example of use: Version 1.26.4",
+      "message": "Fersiwn"
+   },
+   "relaxBlockingMode": {
+      "description": "Label for keyboard shortcut used to relax blocking mode",
+      "message": "Lleddfu modd blocio"
+   },
+   "rulesCommit": {
+      "description": "This will persist temporary rules",
+      "message": "Cadw"
+   },
+   "rulesDefaultFileName": {
+      "description": "default file name to use",
+      "message": "fy-hidlyddion-deinamig_{{datetime}}.txt"
+   },
+   "rulesEdit": {
+      "description": "Will enable manual-edit mode (textarea)",
+      "message": "Golygu"
+   },
+   "rulesEditDiscard": {
+      "description": "Will discard manually-edited content and exit manual-edit mode",
+      "message": "Dileu"
+   },
+   "rulesEditSave": {
+      "description": "Will save manually-edited content and exit manual-edit mode",
+      "message": "Cadw"
+   },
+   "rulesExport": {
+      "description": "Button in the 'My rules' pane",
+      "message": "Allforio i ffeil…"
+   },
+   "rulesFormatHint": {
+      "description": "English: dynamic rule syntax and full documentation.",
+      "message": "Cystrawen rheol: \u003Ccode>ffynhonnell cyrchfan math gweithred\u003C/code> (\u003Ca href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>dogfennaeth lawn\u003C/a>)."
+   },
+   "rulesHint": {
+      "description": "English: List of your dynamic filtering rules.",
+      "message": "Rhestr o'ch rheolau hidlo deinamig. "
+   },
+   "rulesImport": {
+      "description": "",
+      "message": "Mewnforio o ffeil..."
+   },
+   "rulesPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Fy rheolau"
+   },
+   "rulesPermanentHeader": {
+      "description": "header",
+      "message": "Rheolau parhaol"
+   },
+   "rulesRevert": {
+      "description": "This will remove all temporary rules",
+      "message": "Gwrthdroi"
+   },
+   "rulesSort": {
+      "description": "English: label for sort option.",
+      "message": "Trefnu:"
+   },
+   "rulesSortByDestination": {
+      "description": "English: a sort option for list of rules.",
+      "message": "Cyrchfan"
+   },
+   "rulesSortBySource": {
+      "description": "English: a sort option for list of rules.",
+      "message": "Ffynhonnell"
+   },
+   "rulesSortByType": {
+      "description": "English: a sort option for list of rules.",
+      "message": "Math o reol"
+   },
+   "rulesTemporaryHeader": {
+      "description": "header",
+      "message": "Rheolau dros dro"
+   },
+   "settingPerSiteSwitchGroup": {
+      "description": "",
+      "message": "Ymddygiad diofyn"
+   },
+   "settingPerSiteSwitchGroupSynopsis": {
+      "description": "",
+      "message": "Gellir gor-reoli'r ymddygiadau diofyn hyn fesul safle"
+   },
+   "settingsAdvanced": {
+      "description": "Section for controlling advanced-user settings",
+      "message": "Uwch"
+   },
+   "settingsAdvancedSynopsis": {
+      "description": "Description of section controlling advanced-user settings",
+      "message": "Nodweddion sy'n addas ar gyfer defnyddwyr technegol yn unig"
+   },
+   "settingsAdvancedUserPrompt": {
+      "description": "Checkbox to let user access advanced, technical features",
+      "message": "Rwy'n ddefnyddiwr profiadol"
+   },
+   "settingsAdvancedUserSettings": {
+      "description": "For the tooltip of a link which gives access to advanced settings",
+      "message": "gosodiadau uwch"
+   },
+   "settingsAppearance": {
+      "description": "Section for controlling user interface appearance",
+      "message": "Gwedd"
+   },
+   "settingsCloudStorageEnabledPrompt": {
+      "description": "",
+      "message": "Galluogi cefnogaeth storio cwmwl"
+   },
+   "settingsCollapseBlockedPrompt": {
+      "description": "English: Hide placeholders of blocked elements",
+      "message": "Cuddio daliadau lle elfennau bloc"
+   },
+   "settingsColorBlindPrompt": {
+      "description": "English: Color-blind friendly",
+      "message": "Cyfeillgar i ddallwyr lliw"
+   },
+   "settingsContextMenuPrompt": {
+      "description": "English: Make use of context menu where appropriate",
+      "message": "Defnyddio'r ddewislen cyd-destun lle bo'n briodol"
+   },
+   "settingsHyperlinkAuditingDisabledPrompt": {
+      "description": "English: ",
+      "message": "Analluogi archwilio hypergysylltiad"
+   },
+   "settingsIconBadgePrompt": {
+      "description": "English: Show the number of blocked requests on the icon",
+      "message": "Dangos nifer y ceisiadau bloc ar yr eicon"
+   },
+   "settingsLastBackupPrompt": {
+      "description": "English: Last backup:",
+      "message": "Copiau wrth gefn diwethaf:"
+   },
+   "settingsLastRestorePrompt": {
+      "description": "English: Last restore:",
+      "message": "Adferiad diwethaf:"
+   },
+   "settingsNoCSPReportsPrompt": {
+      "description": "background information: https://github.com/gorhill/uBlock/issues/3150",
+      "message": "Blocio adroddiadau CSP"
+   },
+   "settingsNoCosmeticFilteringPrompt": {
+      "description": "",
+      "message": "Analluogi hidlo arwynebol"
+   },
+   "settingsNoLargeMediaPrompt": {
+      "description": "",
+      "message": "Blocio elfennau cyfryngau sy'n fwy na {{input}} KB"
+   },
+   "settingsNoRemoteFontsPrompt": {
+      "description": "",
+      "message": "Rhwystro ffontiau pell"
+   },
+   "settingsNoScriptingPrompt": {
+      "description": "The default state for the per-site no-scripting switch",
+      "message": "Analluogi JavaScript"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Gosodiadau"
+   },
+   "settingsPrefetchingDisabledPrompt": {
+      "description": "English: ",
+      "message": "Analluogi rhag-llwytho (i atal unrhyw gysylltiad ar gyfer ceisiadau rhwydwaith bloc)"
+   },
+   "settingsThemeAccent0Label": {
+      "description": "Label for checkbox to pick an accent color",
+      "message": "Lliw acen personol"
+   },
+   "settingsThemeLabel": {
+      "description": "Label for checkbox to enable a custom dark theme",
+      "message": "Thema"
+   },
+   "settingsTooltipsPrompt": {
+      "description": "A checkbox in the Settings pane",
+      "message": "Analluoga awgrymiadau offer"
+   },
+   "settingsUncloakCnamePrompt": {
+      "description": "background information: https://github.com/uBlockOrigin/uBlock-issues/issues/1513",
+      "message": "Datguddio enwau canonaidd"
+   },
+   "settingsWebRTCIPAddressHiddenPrompt": {
+      "description": "English: ",
+      "message": "Rhwystro WebRTC rhag datgelu eich cyfeiriad IP mewnol"
+   },
+   "shortcutCapturePlaceholder": {
+      "description": "Placeholder string for input field used to capture a keyboard shortcut",
+      "message": "Teipiwch lwybr byr"
+   },
+   "shortcutsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Llwybrau byr"
+   },
+   "showDashboardButton": {
+      "description": "Firefox/Fennec-specific: Show Dashboard",
+      "message": "Dangos y dashfwrdd"
+   },
+   "showNetworkLogButton": {
+      "description": "Firefox/Fennec-specific: Show Logger",
+      "message": "Dangos y logiwr"
+   },
+   "statsPageName": {
+      "description": "Title for the logger window",
+      "message": "uBlock₀ — Logiwr"
+   },
+   "storageUsed": {
+      "description": " In Setting pane, renders as (example): Storage used: 13.2 MB",
+      "message": "Storfa: {{value}} {{unit}}"
+   },
+   "subscribeButton": {
+      "description": "For the button used to subscribe to a filter list",
+      "message": "Tanysgrifio"
+   },
+   "supportFindSpecificButton": {
+      "description": "A clickable link in the filter issue reporter section",
+      "message": "Canfod adroddiadau tebyg"
+   },
+   "supportOpenButton": {
+      "description": "Text for button which open an external web page in Support pane",
+      "message": "Agor"
+   },
+   "supportPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Cymorth"
+   },
+   "supportReportSpecificButton": {
+      "description": "Text for button which open an external web page in Support pane",
+      "message": "Creu adroddiad newydd"
+   },
+   "supportS1H": {
+      "description": "Header of 'Documentation' section in Support pane",
+      "message": "Dogfennaeth"
+   },
+   "supportS1P1": {
+      "description": "First paragraph of 'Documentation' section in Support pane",
+      "message": "Darllenwch y ddogfennaeth yn \u003Ccode>uBlock/wiki\u003C/code> i ddysgu am holl nodweddion uBlock Origin."
+   },
+   "supportS2H": {
+      "description": "Header of 'Questions and support' section in Support pane",
+      "message": "Cwestiynau a chymorth"
+   },
+   "supportS2P1": {
+      "description": "First paragraph of 'Questions and support' section in Support pane",
+      "message": "Darperir atebion i gwestiynau a chymorth arall ar yr is-reddit \u003Ccode>/r/uBlockOrigin\u003C/code>."
+   },
+   "supportS3H": {
+      "description": "Header of 'Filter issues' section in Support pane",
+      "message": "Problemau hidlo / gwefan wedi torri"
+   },
+   "supportS3P1": {
+      "description": "First paragraph of 'Filter issues' section in Support pane",
+      "message": "Adroddwch am broblemau hidlo gyda gwefannau penodol i \u003Cspan data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\">\u003Ccode>uBlockOrigin/uAssets\u003C/code> olrheiniwr materion\u003C/span>. \u003Cu>Mae angen cyfrif GitHub.\u003C/u>"
+   },
+   "supportS3P2": {
+      "description": "Second paragraph of 'Filter issues' section in Support pane",
+      "message": "\u003Cb>Pwysig:\u003C/b> Osgowch ddefnyddio rhwystrwyr eraill o ddiben tebyg ochr yn ochr ag uBlock Origin, gan y gallai hyn achosi problemau hidlo ar wefannau penodol."
+   },
+   "supportS3P3": {
+      "description": "Third paragraph of 'Filter issues' section in Support pane",
+      "message": "\u003Cb>Awgrymiadau:\u003C/b> Gwnewch yn siŵr bod eich rhestrau hidl yn gyfoes. \u003Cspan data-url=\"logger-ui.html#_\">Y logiwr\u003C/span> yw'r prif offeryn i ddiagnosio problemau sy'n ymwneud â hidlo."
+   },
+   "supportS4H": {
+      "description": "Header of 'Bug report' section in Support pane",
+      "message": "Adroddiad nam"
+   },
+   "supportS4P1": {
+      "description": "First paragraph of 'Bug report' section in Support pane",
+      "message": "Adroddwch am broblemau gydag uBlock Origin ei hun i \u003Cspan data-url=\"https://github.com/uBlockOrigin/uBlock-issues/issues?q=is%3Aissue\">\u003Ccode>uBlockOrigin/uBlock-issue\u003C/code> olrheiniwr materion\u003C/span>. \u003Cu>Mae angen cyfrif GitHub.\u003C/u>"
+   },
+   "supportS5H": {
+      "description": "Header of 'Troubleshooting Information' section in Support pane",
+      "message": "Gwybodaeth datrys problemau"
+   },
+   "supportS5P1": {
+      "description": "First paragraph of 'Troubleshooting Information' section in Support pane",
+      "message": "Isod mae gwybodaeth dechnegol a allai fod yn ddefnyddiol pan fydd gwirfoddolwyr yn ceisio'ch helpu i ddatrys problem."
+   },
+   "supportS6Checkbox1": {
+      "description": "A checkbox to use for NSFW sites",
+      "message": "Rhoi label “NSFW” (\u003Ca href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”\u003C/a>) ar y dudalen we"
+   },
+   "supportS6H": {
+      "description": "Header of 'Report a filter issue' section in Support pane",
+      "message": "Adrodd nam ar hidlydd"
+   },
+   "supportS6P1S1": {
+      "description": "A paragraph in the filter issue reporter section",
+      "message": "Er mwyn osgoi baich ar wirfoddolwyr gydag adroddiadau dyblyg, gwiriwch nad yw'r mater eisoes wedi'i adrodd. \u003Cb>Nodyn:\u003C/b> bydd clicio'r botwm yn achosi i darddiad y dudalen gael ei anfon i GitHub."
+   },
+   "supportS6P2S1": {
+      "description": "A paragraph in the filter issue reporter section",
+      "message": "Mae rhestrau hidl yn cael eu diweddaru'n ddyddiol. Gwnewch yn siŵr nad yw'ch mater eisoes wedi'i ddatrys yn y rhestrau hidl diweddaraf."
+   },
+   "supportS6P2S2": {
+      "description": "A paragraph in the filter issue reporter section",
+      "message": "Gwiriwch fod y mater yn dal i fodoli ar ôl ail-lwytho'r dudalen we broblemus."
+   },
+   "supportS6Select1": {
+      "description": "Label for widget to select type of issue",
+      "message": "Y dudalen we…"
+   },
+   "supportS6Select1Option0": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "-- Dewiswch gofnod --"
+   },
+   "supportS6Select1Option1": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn dangos hysbysebion neu weddillion hysbysebion"
+   },
+   "supportS6Select1Option2": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Mae gorgysylltiadau neu niwsansau eraill"
+   },
+   "supportS6Select1Option3": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn canfod uBlock Origin"
+   },
+   "supportS6Select1Option4": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn cynnwys materion preifatrwydd"
+   },
+   "supportS6Select1Option5": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn camweithio pan fydd uBlock Origin wedi'i alluogi"
+   },
+   "supportS6Select1Option6": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn agor tabiau neu ffenestri diangen"
+   },
+   "supportS6Select1Option7": {
+      "description": "An entry in the widget used to select the type of issue",
+      "message": "Yn arwain at feddalwedd faleisus, gwe-rwydo"
+   },
+   "supportS6URL": {
+      "description": "Label for the URL of the page",
+      "message": "Cyfeiriad y dudalen we:"
+   },
+   "toggleCosmeticFiltering": {
+      "description": "Label for keyboard shortcut used to toggle cosmetic filtering",
+      "message": "Toglo hidlo arwynebol"
+   },
+   "toggleJavascript": {
+      "description": "Label for keyboard shortcut used to toggle no-scripting switch",
+      "message": "Toglo JavaScript"
+   },
+   "unprocessedRequestTooltip": {
+      "description": "A warning which will appear in the popup panel if needed",
+      "message": "Methwyd hidlo'n iawn wrth lansio'r porwr. Ail-lwythwch y dudalen i sicrhau hidlo priodol."
+   },
+   "whitelistApply": {
+      "description": "English: Apply changes",
+      "message": "Rhoi'r newidiadau ar waith"
+   },
+   "whitelistExport": {
+      "description": "Button in the 'Trusted sites' pane",
+      "message": "Allforio…"
+   },
+   "whitelistExportFilename": {
+      "description": "The default filename to use for import/export purpose",
+      "message": "my-ublock-trusted-sites_{{datetime}}.txt"
+   },
+   "whitelistImport": {
+      "description": "Button in the 'Trusted sites' pane",
+      "message": "Mewnforio ac atodi..."
+   },
+   "whitelistPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Gwefannau dibynadwy"
+   },
+   "whitelistPrompt": {
+      "description": "A concise description of the 'Trusted sites' pane.",
+      "message": "Mae cyfarwyddiadau safle dibynadwy yn pennu ar ba dudalennau gwe y dylid analluogi uBlock Origin. Un cofnod fesul llinell."
+   }
+}

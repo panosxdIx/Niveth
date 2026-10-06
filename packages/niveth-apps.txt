@@ -1,6 +1,6 @@
 kitty
-vivaldi-stable
+brave-browser
 ptyxis
-okular
+papers
 python3-evdev
 python3-pygame

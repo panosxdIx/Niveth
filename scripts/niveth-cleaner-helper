@@ -77,9 +77,6 @@ browser_running() {
     pgrep -x brave >/dev/null 2>&1 && return 0
     pgrep -x brave-browser >/dev/null 2>&1 && return 0
 
-    # Vivaldi
-    pgrep -x vivaldi >/dev/null 2>&1 && return 0
-    pgrep -x vivaldi-bin >/dev/null 2>&1 && return 0
 
     # Microsoft Edge
     pgrep -x microsoft-edge >/dev/null 2>&1 && return 0
@@ -139,13 +136,13 @@ clean_known_browser_caches() {
         "$USER_HOME/.cache/chromium" \
         "$USER_HOME/.cache/google-chrome" \
         "$USER_HOME/.cache/BraveSoftware" \
-        "$USER_HOME/.cache/vivaldi" \
+\
         "$USER_HOME/.cache/microsoft-edge" \
         "$USER_HOME/.cache/opera" \
         "$USER_HOME/.config/chromium" \
         "$USER_HOME/.config/google-chrome" \
         "$USER_HOME/.config/BraveSoftware/Brave-Browser" \
-        "$USER_HOME/.config/vivaldi" \
+\
         "$USER_HOME/.config/microsoft-edge" \
         "$USER_HOME/.config/opera"
     do
@@ -276,7 +273,7 @@ PYSQL
         "$USER_HOME/.config/chromium" \
         "$USER_HOME/.config/google-chrome" \
         "$USER_HOME/.config/BraveSoftware/Brave-Browser" \
-        "$USER_HOME/.config/vivaldi" \
+\
         "$USER_HOME/.config/microsoft-edge" \
         "$USER_HOME/.config/opera"
     do
@@ -369,8 +366,6 @@ close_running_browsers() {
         chrome \
         brave \
         brave-browser \
-        vivaldi \
-        vivaldi-bin \
         microsoft-edge \
         microsoft-edge-stable \
         msedge \

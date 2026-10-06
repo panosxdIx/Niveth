@@ -28,7 +28,7 @@ SOURCE_HOME="$(getent passwd "$SOURCE_USER" | awk -F: '{print $6}')"
 PROJECT_ROOT="${NIVETH_PROJECT_ROOT:-$SOURCE_HOME/Niveth}"
 PROJECT_ROOT="$(cd "$PROJECT_ROOT" && pwd)"
 
-VERSION="0.1"
+VERSION="0.1.1"
 PROJECT_NAME="Niveth Linux"
 HOST_NAME="niveth"
 ISO_DIR="$PROJECT_ROOT/iso"
@@ -335,7 +335,7 @@ StartupNotify=true
 EOF_INSTALLER
 
   #
-  # VIVALDI LIVE COMPATIBILITY
+  # LIVE COMPATIBILITY
   #
   mkdir -p "$ROOTFS/etc/systemd/system/multi-user.target.wants"
 
@@ -372,7 +372,7 @@ EOF_COMPAT
   }
 
   [[ -f "$ROOTFS/etc/systemd/system/niveth-live-compat.service" ]] || {
-    echo "ERROR: Vivaldi Live compatibility service missing." >&2
+    echo "ERROR: Niveth Live compatibility service missing." >&2
     exit 1
   }
 
@@ -386,9 +386,9 @@ generate_branding() {
   else
     cat > "$ROOTFS/etc/os-release" <<'EOF'
 NAME="Niveth Linux"
-PRETTY_NAME="Niveth Linux 0.1"
-VERSION="0.1"
-VERSION_ID="0.1"
+PRETTY_NAME="Niveth Linux 0.1.1"
+VERSION="0.1.1"
+VERSION_ID="0.1.1"
 ID=niveth
 ID_LIKE=ubuntu
 EOF
@@ -455,7 +455,6 @@ copy_desktop_defaults() {
       -iname 'niveth-*' -exec cp -a {} "$skel/.local/bin/" \;
   fi
 
-  rm -rf "$skel/.config/vivaldi"
   rm -rf "$skel/.config/google-chrome"
   rm -rf "$skel/.config/chromium"
   rm -rf "$skel/.config/BraveSoftware"
@@ -665,7 +664,7 @@ build_iso() {
     exit 1
   }
 
-  ln -sfn "$(basename "$ISO")" "$LATEST_ISO"
+  echo "[BUILD] Final ISO uses fixed filename: $(basename "$ISO")"
 }
 
 verify_iso() {
@@ -695,7 +694,7 @@ verify_iso() {
     fi
 
     if unsquashfs -l "$ISO_TREE/casper/filesystem.squashfs" |
-      grep -qE "(^|/)home/${SOURCE_USER}(/|$)"; then
+      grep -E "(^|/)home/${SOURCE_USER}(/|$)" >/dev/null; then
       echo "FAIL: source home present"
       return 11
     else
@@ -704,7 +703,7 @@ verify_iso() {
 
     echo "[HOST SECRET PATHS]"
     if unsquashfs -l "$ISO_TREE/casper/filesystem.squashfs" |
-      grep -qE '(^|/)(etc/ssh/ssh_host_|etc/NetworkManager/system-connections/|root/\.ssh/)'; then
+      grep -E '(^|/)(etc/ssh/ssh_host_|etc/NetworkManager/system-connections/|root/\.ssh/)' >/dev/null; then
       echo "FAIL: host-secret paths present"
       return 12
     else
@@ -719,7 +718,8 @@ verify_iso() {
       usr/local/bin/niveth-files
     do
       if unsquashfs -l "$ISO_TREE/casper/filesystem.squashfs" |
-        grep -qE "(^|/)$p$"; then
+        sed 's#^squashfs-root/##' |
+        grep -xF "$p" >/dev/null; then
         echo "PASS: $p"
       else
         echo "WARN: $p not found"
@@ -728,12 +728,13 @@ verify_iso() {
 
     echo "[LIVE USER DEFAULTS]"
     for p in \
-      etc/skel/.config/gnome-shell \
+      etc/skel/.local/share/gnome-shell \
       etc/skel/.config/niveth \
       etc/skel/.config/kitty
     do
       if unsquashfs -l "$ISO_TREE/casper/filesystem.squashfs" |
-        grep -qE "(^|/)$p$"; then
+        sed 's#^squashfs-root/##' |
+        grep -xF "$p" >/dev/null; then
         echo "PASS: $p"
       else
         echo "WARN: $p not found"
@@ -753,8 +754,7 @@ start_new_build() {
   MANIFEST="$SNAPSHOT_DIR/installed-packages.txt"
   BUILD_LOG="$LOG_DIR/build.log"
   VERIFY_LOG="$LOG_DIR/verify.log"
-  ISO="$ISO_DIR/Niveth-0.1-amd64-$TIMESTAMP.iso"
-  LATEST_ISO="$ISO_DIR/Niveth-0.1-amd64.iso"
+  ISO="$ISO_DIR/Niveth-0.1.1-amd64.iso"
 
   mkdir -p "$SNAPSHOT_DIR" "$LOG_DIR"
   : > "$BUILD_LOG"
@@ -782,7 +782,7 @@ start_new_build() {
 
   echo
   echo "============================================================"
-  echo "NIVETH 0.1 SNAPSHOT BUILD COMPLETE"
+  echo "NIVETH 0.1.1 SNAPSHOT BUILD COMPLETE"
   echo "============================================================"
   echo "ISO      : $ISO"
   echo "Snapshot : $SNAPSHOT_DIR"
@@ -799,8 +799,7 @@ resume_build() {
   BUILD_LOG="$LOG_DIR/build.log"
   VERIFY_LOG="$LOG_DIR/verify.log"
   TIMESTAMP="$(basename "$SNAPSHOT_DIR")"
-  ISO="$ISO_DIR/Niveth-0.1-amd64-$TIMESTAMP.iso"
-  LATEST_ISO="$ISO_DIR/Niveth-0.1-amd64.iso"
+  ISO="$ISO_DIR/Niveth-0.1.1-amd64.iso"
 
   [[ -d "$ROOTFS" ]] || { echo "ERROR: rootfs not found in $SNAPSHOT_DIR" >&2; exit 1; }
   [[ -d "$ISO_TREE" ]] || { echo "ERROR: iso-tree not found in $SNAPSHOT_DIR" >&2; exit 1; }
@@ -831,7 +830,7 @@ resume_build() {
 
   echo
   echo "============================================================"
-  echo "NIVETH 0.1 SNAPSHOT RESUME COMPLETE"
+  echo "NIVETH 0.1.1 SNAPSHOT RESUME COMPLETE"
   echo "============================================================"
   echo "ISO      : $ISO"
   echo "Snapshot : $SNAPSHOT_DIR"
